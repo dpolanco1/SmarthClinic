@@ -61,12 +61,13 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtBuscarPaciente = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtTipoSangre = new DevExpress.XtraEditors.TextEdit();
             this.txtAltura = new DevExpress.XtraEditors.TextEdit();
             this.txtPeso = new DevExpress.XtraEditors.TextEdit();
             this.txtEdad = new DevExpress.XtraEditors.TextEdit();
             this.txtNombrePaciente = new DevExpress.XtraEditors.TextEdit();
-            this.txtPaciente = new DevExpress.XtraEditors.LookUpEdit();
             this.lblTipoSangre = new DevExpress.XtraEditors.LabelControl();
             this.lblAltura = new DevExpress.XtraEditors.LabelControl();
             this.lblEdad = new DevExpress.XtraEditors.LabelControl();
@@ -74,9 +75,10 @@
             this.lblNombrePaciente = new DevExpress.XtraEditors.LabelControl();
             this.lblPaciente = new DevExpress.XtraEditors.LabelControl();
             this.grpDatosMedicos = new DevExpress.XtraEditors.GroupControl();
+            this.txtBuscarMedico = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtEspecialidad = new DevExpress.XtraEditors.TextEdit();
             this.txtNombremedico = new DevExpress.XtraEditors.TextEdit();
-            this.txtMedico = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.lblNombreMedico = new DevExpress.XtraEditors.LabelControl();
             this.lblMedico = new DevExpress.XtraEditors.LabelControl();
@@ -96,17 +98,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMotivo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuscarPaciente.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoSangre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAltura.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPeso.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombrePaciente.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPaciente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpDatosMedicos)).BeginInit();
             this.grpDatosMedicos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuscarMedico.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEspecialidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombremedico.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMedico.Properties)).BeginInit();
             this.tabListadeConsultas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListaConsultas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -182,7 +186,7 @@
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(891, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 483);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 481);
             // 
             // barManager1
             // 
@@ -310,22 +314,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 523);
-            this.barDockControlBottom.Size = new System.Drawing.Size(891, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 521);
+            this.barDockControlBottom.Size = new System.Drawing.Size(891, 25);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 483);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 481);
             // 
             // barDockControl1
             // 
             this.barDockControl1.CausesValidation = false;
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl1.Location = new System.Drawing.Point(891, 40);
-            this.barDockControl1.Size = new System.Drawing.Size(0, 483);
+            this.barDockControl1.Size = new System.Drawing.Size(0, 481);
             // 
             // tabPrincipalConsultas
             // 
@@ -333,7 +337,7 @@
             this.tabPrincipalConsultas.Location = new System.Drawing.Point(0, 40);
             this.tabPrincipalConsultas.Name = "tabPrincipalConsultas";
             this.tabPrincipalConsultas.SelectedTabPage = this.tabConsultas;
-            this.tabPrincipalConsultas.Size = new System.Drawing.Size(891, 483);
+            this.tabPrincipalConsultas.Size = new System.Drawing.Size(891, 481);
             this.tabPrincipalConsultas.TabIndex = 14;
             this.tabPrincipalConsultas.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabConsultas,
@@ -345,7 +349,7 @@
             this.tabConsultas.Controls.Add(this.groupControl1);
             this.tabConsultas.Controls.Add(this.grpDatosMedicos);
             this.tabConsultas.Name = "tabConsultas";
-            this.tabConsultas.Size = new System.Drawing.Size(885, 457);
+            this.tabConsultas.Size = new System.Drawing.Size(885, 455);
             this.tabConsultas.Text = "Consulta Médica";
             // 
             // groupControl2
@@ -359,7 +363,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 182);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(885, 275);
+            this.groupControl2.Size = new System.Drawing.Size(885, 273);
             this.groupControl2.TabIndex = 10;
             this.groupControl2.Text = "Datos De La Consulta:";
             // 
@@ -413,12 +417,12 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtBuscarPaciente);
             this.groupControl1.Controls.Add(this.txtTipoSangre);
             this.groupControl1.Controls.Add(this.txtAltura);
             this.groupControl1.Controls.Add(this.txtPeso);
             this.groupControl1.Controls.Add(this.txtEdad);
             this.groupControl1.Controls.Add(this.txtNombrePaciente);
-            this.groupControl1.Controls.Add(this.txtPaciente);
             this.groupControl1.Controls.Add(this.lblTipoSangre);
             this.groupControl1.Controls.Add(this.lblAltura);
             this.groupControl1.Controls.Add(this.lblEdad);
@@ -431,6 +435,24 @@
             this.groupControl1.Size = new System.Drawing.Size(885, 94);
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "Datos Del Paciente:";
+            // 
+            // txtBuscarPaciente
+            // 
+            this.txtBuscarPaciente.Location = new System.Drawing.Point(258, 25);
+            this.txtBuscarPaciente.MenuManager = this.barManager1;
+            this.txtBuscarPaciente.Name = "txtBuscarPaciente";
+            this.txtBuscarPaciente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtBuscarPaciente.Properties.View = this.gridView1;
+            this.txtBuscarPaciente.Size = new System.Drawing.Size(415, 20);
+            this.txtBuscarPaciente.TabIndex = 57;
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // txtTipoSangre
             // 
@@ -471,16 +493,6 @@
             this.txtNombrePaciente.Name = "txtNombrePaciente";
             this.txtNombrePaciente.Size = new System.Drawing.Size(307, 20);
             this.txtNombrePaciente.TabIndex = 52;
-            // 
-            // txtPaciente
-            // 
-            this.txtPaciente.Location = new System.Drawing.Point(264, 25);
-            this.txtPaciente.MenuManager = this.barManager1;
-            this.txtPaciente.Name = "txtPaciente";
-            this.txtPaciente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtPaciente.Size = new System.Drawing.Size(351, 20);
-            this.txtPaciente.TabIndex = 51;
             // 
             // lblTipoSangre
             // 
@@ -532,9 +544,9 @@
             // 
             // grpDatosMedicos
             // 
+            this.grpDatosMedicos.Controls.Add(this.txtBuscarMedico);
             this.grpDatosMedicos.Controls.Add(this.txtEspecialidad);
             this.grpDatosMedicos.Controls.Add(this.txtNombremedico);
-            this.grpDatosMedicos.Controls.Add(this.txtMedico);
             this.grpDatosMedicos.Controls.Add(this.labelControl4);
             this.grpDatosMedicos.Controls.Add(this.lblNombreMedico);
             this.grpDatosMedicos.Controls.Add(this.lblMedico);
@@ -544,6 +556,24 @@
             this.grpDatosMedicos.Size = new System.Drawing.Size(885, 88);
             this.grpDatosMedicos.TabIndex = 8;
             this.grpDatosMedicos.Text = "Datos Del Medico:";
+            // 
+            // txtBuscarMedico
+            // 
+            this.txtBuscarMedico.Location = new System.Drawing.Point(258, 25);
+            this.txtBuscarMedico.MenuManager = this.barManager1;
+            this.txtBuscarMedico.Name = "txtBuscarMedico";
+            this.txtBuscarMedico.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtBuscarMedico.Properties.View = this.searchLookUpEdit1View;
+            this.txtBuscarMedico.Size = new System.Drawing.Size(415, 20);
+            this.txtBuscarMedico.TabIndex = 25;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // txtEspecialidad
             // 
@@ -560,16 +590,6 @@
             this.txtNombremedico.Name = "txtNombremedico";
             this.txtNombremedico.Size = new System.Drawing.Size(307, 20);
             this.txtNombremedico.TabIndex = 23;
-            // 
-            // txtMedico
-            // 
-            this.txtMedico.Location = new System.Drawing.Point(264, 25);
-            this.txtMedico.MenuManager = this.barManager1;
-            this.txtMedico.Name = "txtMedico";
-            this.txtMedico.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtMedico.Size = new System.Drawing.Size(351, 20);
-            this.txtMedico.TabIndex = 22;
             // 
             // labelControl4
             // 
@@ -675,18 +695,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuscarPaciente.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoSangre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAltura.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPeso.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombrePaciente.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPaciente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpDatosMedicos)).EndInit();
             this.grpDatosMedicos.ResumeLayout(false);
             this.grpDatosMedicos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuscarMedico.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEspecialidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombremedico.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMedico.Properties)).EndInit();
             this.tabListadeConsultas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgListaConsultas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
@@ -738,8 +760,6 @@
         private DevExpress.XtraEditors.LabelControl lblNombreMedico;
         private DevExpress.XtraEditors.LabelControl lblMedico;
         private DevExpress.XtraTab.XtraTabPage tabListadeConsultas;
-        private DevExpress.XtraEditors.LookUpEdit txtPaciente;
-        private DevExpress.XtraEditors.LookUpEdit txtMedico;
         private DevExpress.XtraEditors.MemoEdit txtIndicaciones;
         private DevExpress.XtraEditors.MemoEdit txtDiagnostico;
         private DevExpress.XtraEditors.MemoEdit txtMotivo;
@@ -754,5 +774,9 @@
         private DevExpress.XtraEditors.TextEdit txtFiltro;
         private DevExpress.XtraEditors.SimpleButton btnCargar;
         private System.Windows.Forms.DataGridView dtgListaConsultas;
+        private DevExpress.XtraEditors.SearchLookUpEdit txtBuscarPaciente;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SearchLookUpEdit txtBuscarMedico;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
     }
 }
