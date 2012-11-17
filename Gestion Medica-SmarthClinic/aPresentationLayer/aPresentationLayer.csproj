@@ -78,8 +78,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validaciones\AdministrarControles.cs" />
-    <Compile Include="Validaciones\ValidarControles.cs" />
+    <Compile Include="Validaciones\Controles.cs" />
     <EmbeddedResource Include="Frm_Consultas.resx">
       <DependentUpon>Frm_Consultas.cs</DependentUpon>
     </EmbeddedResource>

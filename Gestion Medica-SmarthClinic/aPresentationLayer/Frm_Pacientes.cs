@@ -36,7 +36,7 @@ namespace aPresentationLayer
         private void btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //Habilitar todo
-            AdministrarControles.HabilitarText(frm_pacientes);
+            Controles.HabilitarText(frm_pacientes);
 
            
             

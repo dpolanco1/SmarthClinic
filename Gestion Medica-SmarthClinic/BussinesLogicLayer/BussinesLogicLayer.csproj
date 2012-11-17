@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bl_AdministrarControles.cs" />
     <Compile Include="Bl_AntecedentesFamiliares.cs" />
     <Compile Include="Bl_AntecedentesFarmacologicos.cs" />
     <Compile Include="Bl_AntecedentesPersonales.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="Bl_HistorialClinico.cs" />
     <Compile Include="Bl_Paciente.cs" />
     <Compile Include="Bl_Telefono.cs" />
-    <Compile Include="Bl_ValidarControles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
