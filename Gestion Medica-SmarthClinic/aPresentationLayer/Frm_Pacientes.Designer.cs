@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnImportarData = new DevExpress.XtraTab.XtraTabControl();
+            this.tabPrincipalPacientes = new DevExpress.XtraTab.XtraTabControl();
             this.tabPacientes = new DevExpress.XtraTab.XtraTabPage();
             this.grpUbicaciones = new DevExpress.XtraEditors.GroupControl();
-            this.dtgContactos = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dtgColumNombreContacto = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dtgColumTelefonoContacto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtTelefonoContacto = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnNuevo = new DevExpress.XtraBars.BarButtonItem();
@@ -50,6 +47,11 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.txtTelefonos = new DevExpress.XtraEditors.TextEdit();
+            this.dtgContactos = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dtgColumNombreContacto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dtgColumTelefonoContacto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dtgTelefonos = new DevExpress.XtraGrid.GridControl();
             this.GridControl = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dtgColumTelefonos = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,6 +70,7 @@
             this.lblTelefono = new DevExpress.XtraEditors.LabelControl();
             this.lblDirecciones = new DevExpress.XtraEditors.LabelControl();
             this.grpDatos = new DevExpress.XtraEditors.GroupControl();
+            this.txtIdentificacion = new DevExpress.XtraEditors.TextEdit();
             this.txtDireccion = new DevExpress.XtraEditors.TextEdit();
             this.txtEmail = new DevExpress.XtraEditors.TextEdit();
             this.txtApellidos = new DevExpress.XtraEditors.TextEdit();
@@ -110,26 +113,25 @@
             this.tabHistorialClinico = new DevExpress.XtraTab.XtraTabPage();
             this.dtgHistorialClinico = new DevExpress.XtraGrid.GridControl();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dtgColumPaciente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dtgColumFechaHistorial = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dtgColumProfesionalHistorial = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dtgColumProfesionHistorial = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dtgColumSintomasHistorial = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabListaPacientes = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grpFiltroListaPacientes = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImportarData = new DevExpress.XtraEditors.SimpleButton();
             this.btnCargar = new DevExpress.XtraEditors.SimpleButton();
-            this.txtIdentificacion = new DevExpress.XtraEditors.TextEdit();
-            this.txtTelefonos = new DevExpress.XtraEditors.TextEdit();
-            this.txtTelefonoContacto = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImportarData)).BeginInit();
-            this.btnImportarData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPrincipalPacientes)).BeginInit();
+            this.tabPrincipalPacientes.SuspendLayout();
             this.tabPacientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpUbicaciones)).BeginInit();
             this.grpUbicaciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonoContacto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgContactos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTelefonos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDirecciones)).BeginInit();
@@ -138,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUbicacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpDatos)).BeginInit();
             this.grpDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdentificacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtApellidos.Properties)).BeginInit();
@@ -167,20 +170,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpFiltroListaPacientes)).BeginInit();
             this.grpFiltroListaPacientes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdentificacion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonos.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonoContacto.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnImportarData
+            // tabPrincipalPacientes
             // 
-            this.btnImportarData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnImportarData.Location = new System.Drawing.Point(0, 40);
-            this.btnImportarData.Name = "btnImportarData";
-            this.btnImportarData.SelectedTabPage = this.tabPacientes;
-            this.btnImportarData.Size = new System.Drawing.Size(1106, 664);
-            this.btnImportarData.TabIndex = 33;
-            this.btnImportarData.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabPrincipalPacientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabPrincipalPacientes.Location = new System.Drawing.Point(0, 40);
+            this.tabPrincipalPacientes.Name = "tabPrincipalPacientes";
+            this.tabPrincipalPacientes.SelectedTabPage = this.tabPacientes;
+            this.tabPrincipalPacientes.Size = new System.Drawing.Size(1106, 664);
+            this.tabPrincipalPacientes.TabIndex = 33;
+            this.tabPrincipalPacientes.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPacientes,
             this.tabListaPacientes});
             // 
@@ -218,42 +218,16 @@
             this.grpUbicaciones.TabIndex = 6;
             this.grpUbicaciones.Text = "Datos de Ubicación:";
             // 
-            // dtgContactos
+            // txtTelefonoContacto
             // 
-            this.dtgContactos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgContactos.Location = new System.Drawing.Point(773, 75);
-            this.dtgContactos.MainView = this.gridView2;
-            this.dtgContactos.MenuManager = this.barManager1;
-            this.dtgContactos.Name = "dtgContactos";
-            this.dtgContactos.Size = new System.Drawing.Size(322, 114);
-            this.dtgContactos.TabIndex = 89;
-            this.dtgContactos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dtgColumNombreContacto,
-            this.dtgColumTelefonoContacto});
-            this.gridView2.GridControl = this.dtgContactos;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            this.gridView2.OptionsView.ShowIndicator = false;
-            // 
-            // dtgColumNombreContacto
-            // 
-            this.dtgColumNombreContacto.Caption = "Nombre Contacto";
-            this.dtgColumNombreContacto.Name = "dtgColumNombreContacto";
-            this.dtgColumNombreContacto.Visible = true;
-            this.dtgColumNombreContacto.VisibleIndex = 0;
-            // 
-            // dtgColumTelefonoContacto
-            // 
-            this.dtgColumTelefonoContacto.Caption = "Teléfono";
-            this.dtgColumTelefonoContacto.Name = "dtgColumTelefonoContacto";
-            this.dtgColumTelefonoContacto.Visible = true;
-            this.dtgColumTelefonoContacto.VisibleIndex = 1;
+            this.txtTelefonoContacto.Enabled = false;
+            this.txtTelefonoContacto.Location = new System.Drawing.Point(929, 47);
+            this.txtTelefonoContacto.MenuManager = this.barManager1;
+            this.txtTelefonoContacto.Name = "txtTelefonoContacto";
+            this.txtTelefonoContacto.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
+            this.txtTelefonoContacto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
+            this.txtTelefonoContacto.Size = new System.Drawing.Size(114, 20);
+            this.txtTelefonoContacto.TabIndex = 91;
             // 
             // barManager1
             // 
@@ -322,6 +296,7 @@
             this.btnEditar.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E));
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnEditar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEditar_ItemClick);
             // 
             // btnCancelar
             // 
@@ -331,6 +306,7 @@
             this.btnCancelar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancelar_ItemClick);
             // 
             // btnEliminar
             // 
@@ -340,6 +316,7 @@
             this.btnEliminar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Delete);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnEliminar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEliminar_ItemClick);
             // 
             // btnImprimir
             // 
@@ -398,6 +375,54 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1106, 40);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 497);
+            // 
+            // txtTelefonos
+            // 
+            this.txtTelefonos.Enabled = false;
+            this.txtTelefonos.Location = new System.Drawing.Point(607, 48);
+            this.txtTelefonos.MenuManager = this.barManager1;
+            this.txtTelefonos.Name = "txtTelefonos";
+            this.txtTelefonos.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
+            this.txtTelefonos.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
+            this.txtTelefonos.Size = new System.Drawing.Size(108, 20);
+            this.txtTelefonos.TabIndex = 90;
+            // 
+            // dtgContactos
+            // 
+            this.dtgContactos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgContactos.Location = new System.Drawing.Point(773, 75);
+            this.dtgContactos.MainView = this.gridView2;
+            this.dtgContactos.MenuManager = this.barManager1;
+            this.dtgContactos.Name = "dtgContactos";
+            this.dtgContactos.Size = new System.Drawing.Size(322, 114);
+            this.dtgContactos.TabIndex = 89;
+            this.dtgContactos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dtgColumNombreContacto,
+            this.dtgColumTelefonoContacto});
+            this.gridView2.GridControl = this.dtgContactos;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.OptionsView.ShowIndicator = false;
+            // 
+            // dtgColumNombreContacto
+            // 
+            this.dtgColumNombreContacto.Caption = "Nombre Contacto";
+            this.dtgColumNombreContacto.Name = "dtgColumNombreContacto";
+            this.dtgColumNombreContacto.Visible = true;
+            this.dtgColumNombreContacto.VisibleIndex = 0;
+            // 
+            // dtgColumTelefonoContacto
+            // 
+            this.dtgColumTelefonoContacto.Caption = "Teléfono";
+            this.dtgColumTelefonoContacto.Name = "dtgColumTelefonoContacto";
+            this.dtgColumTelefonoContacto.Visible = true;
+            this.dtgColumTelefonoContacto.VisibleIndex = 1;
             // 
             // dtgTelefonos
             // 
@@ -589,6 +614,15 @@
             this.grpDatos.Size = new System.Drawing.Size(1100, 162);
             this.grpDatos.TabIndex = 5;
             this.grpDatos.Text = "Datos del Paciente";
+            // 
+            // txtIdentificacion
+            // 
+            this.txtIdentificacion.Enabled = false;
+            this.txtIdentificacion.Location = new System.Drawing.Point(648, 56);
+            this.txtIdentificacion.MenuManager = this.barManager1;
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(119, 20);
+            this.txtIdentificacion.TabIndex = 83;
             // 
             // txtDireccion
             // 
@@ -914,7 +948,9 @@
             // 
             // TabMasInfo
             // 
-            this.TabMasInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabMasInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TabMasInfo.Location = new System.Drawing.Point(2, 22);
             this.TabMasInfo.Name = "TabMasInfo";
             this.TabMasInfo.SelectedTabPage = this.tbpConsultas;
@@ -933,9 +969,7 @@
             // 
             // dtgConsultas
             // 
-            this.dtgConsultas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgConsultas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgConsultas.Location = new System.Drawing.Point(0, 0);
             this.dtgConsultas.MainView = this.gridView3;
             this.dtgConsultas.MenuManager = this.barManager1;
@@ -987,14 +1021,12 @@
             // 
             // dtgHistorialClinico
             // 
-            this.dtgHistorialClinico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgHistorialClinico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgHistorialClinico.Location = new System.Drawing.Point(0, 0);
             this.dtgHistorialClinico.MainView = this.gridView4;
             this.dtgHistorialClinico.MenuManager = this.barManager1;
             this.dtgHistorialClinico.Name = "dtgHistorialClinico";
-            this.dtgHistorialClinico.Size = new System.Drawing.Size(1090, 129);
+            this.dtgHistorialClinico.Size = new System.Drawing.Size(1090, 255);
             this.dtgHistorialClinico.TabIndex = 90;
             this.dtgHistorialClinico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1002,20 +1034,14 @@
             // gridView4
             // 
             this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dtgColumPaciente,
             this.dtgColumFechaHistorial,
-            this.dtgColumProfesionalHistorial});
+            this.dtgColumProfesionHistorial,
+            this.dtgColumSintomasHistorial});
             this.gridView4.GridControl = this.dtgHistorialClinico;
             this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsView.ShowAutoFilterRow = true;
             this.gridView4.OptionsView.ShowGroupPanel = false;
             this.gridView4.OptionsView.ShowIndicator = false;
-            // 
-            // dtgColumPaciente
-            // 
-            this.dtgColumPaciente.Caption = "Nombre del Paciente";
-            this.dtgColumPaciente.Name = "dtgColumPaciente";
-            this.dtgColumPaciente.Visible = true;
-            this.dtgColumPaciente.VisibleIndex = 2;
             // 
             // dtgColumFechaHistorial
             // 
@@ -1024,12 +1050,19 @@
             this.dtgColumFechaHistorial.Visible = true;
             this.dtgColumFechaHistorial.VisibleIndex = 1;
             // 
-            // dtgColumProfesionalHistorial
+            // dtgColumProfesionHistorial
             // 
-            this.dtgColumProfesionalHistorial.Caption = "Profesional";
-            this.dtgColumProfesionalHistorial.Name = "dtgColumProfesionalHistorial";
-            this.dtgColumProfesionalHistorial.Visible = true;
-            this.dtgColumProfesionalHistorial.VisibleIndex = 0;
+            this.dtgColumProfesionHistorial.Caption = "Profesional";
+            this.dtgColumProfesionHistorial.Name = "dtgColumProfesionHistorial";
+            this.dtgColumProfesionHistorial.Visible = true;
+            this.dtgColumProfesionHistorial.VisibleIndex = 0;
+            // 
+            // dtgColumSintomasHistorial
+            // 
+            this.dtgColumSintomasHistorial.Caption = "Sintomas y Evolucion";
+            this.dtgColumSintomasHistorial.Name = "dtgColumSintomasHistorial";
+            this.dtgColumSintomasHistorial.Visible = true;
+            this.dtgColumSintomasHistorial.VisibleIndex = 2;
             // 
             // tabListaPacientes
             // 
@@ -1061,7 +1094,7 @@
             // 
             // grpFiltroListaPacientes
             // 
-            this.grpFiltroListaPacientes.Controls.Add(this.simpleButton1);
+            this.grpFiltroListaPacientes.Controls.Add(this.btnImportarData);
             this.grpFiltroListaPacientes.Controls.Add(this.btnCargar);
             this.grpFiltroListaPacientes.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpFiltroListaPacientes.Location = new System.Drawing.Point(0, 0);
@@ -1070,13 +1103,13 @@
             this.grpFiltroListaPacientes.TabIndex = 1;
             this.grpFiltroListaPacientes.Text = "Lista de Pacienes";
             // 
-            // simpleButton1
+            // btnImportarData
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(110, 27);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(99, 23);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "Importar";
+            this.btnImportarData.Location = new System.Drawing.Point(110, 27);
+            this.btnImportarData.Name = "btnImportarData";
+            this.btnImportarData.Size = new System.Drawing.Size(99, 23);
+            this.btnImportarData.TabIndex = 1;
+            this.btnImportarData.Text = "Importar";
             // 
             // btnCargar
             // 
@@ -1086,43 +1119,12 @@
             this.btnCargar.TabIndex = 0;
             this.btnCargar.Text = "Cargar Pacientes";
             // 
-            // txtIdentificacion
-            // 
-            this.txtIdentificacion.Enabled = false;
-            this.txtIdentificacion.Location = new System.Drawing.Point(648, 56);
-            this.txtIdentificacion.MenuManager = this.barManager1;
-            this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(119, 20);
-            this.txtIdentificacion.TabIndex = 83;
-            // 
-            // txtTelefonos
-            // 
-            this.txtTelefonos.Enabled = false;
-            this.txtTelefonos.Location = new System.Drawing.Point(607, 48);
-            this.txtTelefonos.MenuManager = this.barManager1;
-            this.txtTelefonos.Name = "txtTelefonos";
-            this.txtTelefonos.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
-            this.txtTelefonos.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
-            this.txtTelefonos.Size = new System.Drawing.Size(108, 20);
-            this.txtTelefonos.TabIndex = 90;
-            // 
-            // txtTelefonoContacto
-            // 
-            this.txtTelefonoContacto.Enabled = false;
-            this.txtTelefonoContacto.Location = new System.Drawing.Point(929, 47);
-            this.txtTelefonoContacto.MenuManager = this.barManager1;
-            this.txtTelefonoContacto.Name = "txtTelefonoContacto";
-            this.txtTelefonoContacto.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
-            this.txtTelefonoContacto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
-            this.txtTelefonoContacto.Size = new System.Drawing.Size(114, 20);
-            this.txtTelefonoContacto.TabIndex = 91;
-            // 
             // Frm_Pacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 560);
-            this.Controls.Add(this.btnImportarData);
+            this.Controls.Add(this.tabPrincipalPacientes);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -1130,15 +1132,17 @@
             this.Name = "Frm_Pacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Pacientes";
-            ((System.ComponentModel.ISupportInitialize)(this.btnImportarData)).EndInit();
-            this.btnImportarData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabPrincipalPacientes)).EndInit();
+            this.tabPrincipalPacientes.ResumeLayout(false);
             this.tabPacientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpUbicaciones)).EndInit();
             this.grpUbicaciones.ResumeLayout(false);
             this.grpUbicaciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonoContacto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgContactos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTelefonos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDirecciones)).EndInit();
@@ -1148,6 +1152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpDatos)).EndInit();
             this.grpDatos.ResumeLayout(false);
             this.grpDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdentificacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtApellidos.Properties)).EndInit();
@@ -1177,16 +1182,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpFiltroListaPacientes)).EndInit();
             this.grpFiltroListaPacientes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdentificacion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonos.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonoContacto.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraTab.XtraTabControl btnImportarData;
+        private DevExpress.XtraTab.XtraTabControl tabPrincipalPacientes;
         private DevExpress.XtraTab.XtraTabPage tabPacientes;
         private DevExpress.XtraEditors.GroupControl grpUbicaciones;
         private DevExpress.XtraEditors.SimpleButton btnEliminarContacto;
@@ -1267,18 +1269,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn dtgColumFecha;
         private DevExpress.XtraGrid.Columns.GridColumn dtgColumProfesional;
         private DevExpress.XtraGrid.Columns.GridColumn dtgColumMotivo;
-        private DevExpress.XtraGrid.GridControl dtgHistorialClinico;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
-        private DevExpress.XtraGrid.Columns.GridColumn dtgColumPaciente;
-        private DevExpress.XtraGrid.Columns.GridColumn dtgColumFechaHistorial;
-        private DevExpress.XtraGrid.Columns.GridColumn dtgColumProfesionalHistorial;
         private DevExpress.XtraEditors.TextEdit txtDireccion;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnImportarData;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraEditors.TextEdit txtTelefonoContacto;
         private DevExpress.XtraEditors.TextEdit txtTelefonos;
         private DevExpress.XtraEditors.TextEdit txtIdentificacion;
+        private DevExpress.XtraGrid.GridControl dtgHistorialClinico;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn dtgColumFechaHistorial;
+        private DevExpress.XtraGrid.Columns.GridColumn dtgColumProfesionHistorial;
+        private DevExpress.XtraGrid.Columns.GridColumn dtgColumSintomasHistorial;
 
     }
 }

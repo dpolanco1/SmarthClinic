@@ -42,18 +42,18 @@ namespace BussinesLogicLayer
             catch (Exception err) { throw new Exception(err.Message); }
             return flag;
         }
-        public static bool VerificarConexion()
-        {
-            bool flag = false;
+        //public static bool VerificarConexion()
+        //{
+        //    bool flag = false;
 
-            if (Da_Paciente.VerificarConecxion())
-            {
-                flag = true;
-            }
-            else { flag = false; }
+        //    if (Da_Paciente.VerificarConecxion())
+        //    {
+        //        flag = true;
+        //    }
+        //    else { flag = false; }
 
-            return flag;
-        }
+        //    return flag;
+        //}
 
         public static DataTable GetAllMedicos()
         {
