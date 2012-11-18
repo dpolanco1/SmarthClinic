@@ -236,36 +236,6 @@ namespace DataAccessLayer
             return 0;
         }
 
-        public static bool VerificarConecxion()
-        {
-            bool flag = false;
      
-            try
-            {
-
-                Da_Connection.Get.Open();
-            
-
-                flag = true;
-
-              
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("");
-            }
-            finally
-            {
-
-                if (Da_Connection.Get != null && Da_Connection.Get.State == ConnectionState.Open)
-                {
-                    Da_Connection.Get.Close();
-                }
-
-            }//fin del Finally*/
-
-            return flag;
-        }
     }
 }

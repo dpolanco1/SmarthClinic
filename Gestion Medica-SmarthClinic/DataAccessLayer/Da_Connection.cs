@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace DataAccessLayer
 {
@@ -35,6 +36,38 @@ namespace DataAccessLayer
                         }
                         return _connection;
                     }
+                }
+
+                public static bool VerificarConecxion()
+                {
+                    bool flag = false;
+
+                    try
+                    {
+
+                        Da_Connection.Get.Open();
+
+
+                        flag = true;
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine(ex.Message);
+                    }
+                    finally
+                    {
+
+                        if (Da_Connection.Get != null && Da_Connection.Get.State == ConnectionState.Open)
+                        {
+                            Da_Connection.Get.Close();
+                        }
+
+                    }//fin del Finally*/
+
+                    return flag;
                 }
         /*
    static Da_Connection Instance = null;
