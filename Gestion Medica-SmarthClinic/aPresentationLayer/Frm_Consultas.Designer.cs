@@ -186,7 +186,7 @@
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(891, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 481);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 483);
             // 
             // barManager1
             // 
@@ -314,22 +314,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 521);
-            this.barDockControlBottom.Size = new System.Drawing.Size(891, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 523);
+            this.barDockControlBottom.Size = new System.Drawing.Size(891, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 481);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 483);
             // 
             // barDockControl1
             // 
             this.barDockControl1.CausesValidation = false;
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl1.Location = new System.Drawing.Point(891, 40);
-            this.barDockControl1.Size = new System.Drawing.Size(0, 481);
+            this.barDockControl1.Size = new System.Drawing.Size(0, 483);
             // 
             // tabPrincipalConsultas
             // 
@@ -337,7 +337,7 @@
             this.tabPrincipalConsultas.Location = new System.Drawing.Point(0, 40);
             this.tabPrincipalConsultas.Name = "tabPrincipalConsultas";
             this.tabPrincipalConsultas.SelectedTabPage = this.tabConsultas;
-            this.tabPrincipalConsultas.Size = new System.Drawing.Size(891, 481);
+            this.tabPrincipalConsultas.Size = new System.Drawing.Size(891, 483);
             this.tabPrincipalConsultas.TabIndex = 14;
             this.tabPrincipalConsultas.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabConsultas,
@@ -349,7 +349,7 @@
             this.tabConsultas.Controls.Add(this.groupControl1);
             this.tabConsultas.Controls.Add(this.grpDatosMedicos);
             this.tabConsultas.Name = "tabConsultas";
-            this.tabConsultas.Size = new System.Drawing.Size(885, 455);
+            this.tabConsultas.Size = new System.Drawing.Size(885, 457);
             this.tabConsultas.Text = "Consulta Médica";
             // 
             // groupControl2
@@ -363,7 +363,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 182);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(885, 273);
+            this.groupControl2.Size = new System.Drawing.Size(885, 275);
             this.groupControl2.TabIndex = 10;
             this.groupControl2.Text = "Datos De La Consulta:";
             // 
@@ -620,7 +620,7 @@
             this.tabListadeConsultas.Controls.Add(this.dtgListaConsultas);
             this.tabListadeConsultas.Controls.Add(this.groupControl3);
             this.tabListadeConsultas.Name = "tabListadeConsultas";
-            this.tabListadeConsultas.Size = new System.Drawing.Size(885, 457);
+            this.tabListadeConsultas.Size = new System.Drawing.Size(885, 455);
             this.tabListadeConsultas.Text = "Lista de Consultas Médicas";
             // 
             // dtgListaConsultas
@@ -637,7 +637,7 @@
             this.dtgListaConsultas.Name = "dtgListaConsultas";
             this.dtgListaConsultas.ReadOnly = true;
             this.dtgListaConsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgListaConsultas.Size = new System.Drawing.Size(885, 398);
+            this.dtgListaConsultas.Size = new System.Drawing.Size(885, 396);
             this.dtgListaConsultas.TabIndex = 3;
             // 
             // groupControl3
