@@ -306,7 +306,7 @@ namespace aPresentationLayer.Validaciones
         }
 
         //Para Verificar que la cedula sea Correcta
-        public static bool ValidaCedula(MaskedTextBox Txt)
+        public static bool ValidarCedula(TextEdit Txt)
         {
             string sCedula = Txt.Text;
             int iDigital = 0;
@@ -357,7 +357,7 @@ namespace aPresentationLayer.Validaciones
         }
 
         //Para verficiar que los Email esten Escrito Correctamente
-        public static bool ValidarEmail(TextBox Txt)
+        public static bool ValidarEmail(TextEdit Txt)
         {
             bool flag;
 
