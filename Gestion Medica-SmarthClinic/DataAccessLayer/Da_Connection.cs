@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Data.SqlClient;
-using System.Data;
+
 
 namespace DataAccessLayer
 {
@@ -24,7 +23,7 @@ namespace DataAccessLayer
 
                       
                         if (_connection == null)
-                            _connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["aPresentationLayer.Properties.Settings.SmartHearthCareDbConnectionStringOneximo"].ToString());
+                            _connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["aPresentationLayer.Properties.Settings.SmartHearthCareDbConnectionStringDelcio"].ToString());
                            // _connection = new SqlConnection(@"workstation id=SmartHearthCareDb.mssql.somee.com;packet size=4096;user id=AppCodee;pwd=AppCodee123;data source=SmartHearthCareDb.mssql.somee.com;persist security info=False;initial catalog=SmartHearthCareDb");
                             //_connection = new SqlConnection(@"Data Source=(local);Initial Catalog=Prueba;Integrated Security=True");
                         return _connection;
@@ -38,37 +37,7 @@ namespace DataAccessLayer
                     }
                 }
 
-                public static bool VerificarConecxion()
-                {
-                    bool flag = false;
-
-                    try
-                    {
-
-                        Da_Connection.Get.Open();
-
-
-                        flag = true;
-
-
-                    }
-                    catch (Exception ex)
-                    {
-
-                        Console.WriteLine(ex.Message);
-                    }
-                    finally
-                    {
-
-                        if (Da_Connection.Get != null && Da_Connection.Get.State == ConnectionState.Open)
-                        {
-                            Da_Connection.Get.Close();
-                        }
-
-                    }//fin del Finally*/
-
-                    return flag;
-                }
+        
         /*
    static Da_Connection Instance = null;
    static SqlConnection _conn = null;

@@ -23,7 +23,7 @@ namespace aPresentationLayer.Validaciones
                 }
                 else if (contHijo is ComboBoxEdit)
                 {
-                    contHijo.Text = String.Empty;
+                    contHijo.Text = string.Empty;
 
                 }
                 else if (contHijo is DateEdit)
@@ -39,17 +39,17 @@ namespace aPresentationLayer.Validaciones
                 }
                 else if (contHijo is MemoExEdit)
                 {
-                    contHijo.Text = String.Empty;
+                    contHijo.Text = string.Empty;
 
                 }
                 else if (contHijo is MemoEdit)
                 {
-                    contHijo.Text = String.Empty;
+                    contHijo.Text = string.Empty;
 
                 }
                 else if (contHijo is MaskedTextBox)
                 {
-                    contHijo.Text = String.Empty;
+                    contHijo.Text = string.Empty;
 
                 }
             }
@@ -207,7 +207,7 @@ namespace aPresentationLayer.Validaciones
                 if (contHijo.HasChildren) VaciarMaskText(contHijo);
                 if (contHijo is MaskedTextBox)
                 {
-                    contHijo.Text = String.Empty;
+                    contHijo.Text = string.Empty;
                 }
             }
 

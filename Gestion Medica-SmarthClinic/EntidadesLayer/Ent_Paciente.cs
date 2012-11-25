@@ -19,7 +19,7 @@ namespace EntidadesLayer
          public string TipoSangre { get; set; }
          public decimal Peso { get; set; }
          public decimal Altura { get; set; }
-         public  DateTime FechaNacimiento {get;set;}
+         public  string Edad {get;set;}
          public string Email { get; set; }
          public string Direccion { get; set; }
 

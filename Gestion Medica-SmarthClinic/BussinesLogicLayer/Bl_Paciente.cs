@@ -105,18 +105,18 @@ namespace BussinesLogicLayer
             return Da_Paciente.SearchIDPaciente();
         }
 
-        // public static bool VerificarConecxion()
-        //{
-        //    bool flag = false;
+        public static bool VerificarConecxion()
+        {
+            bool flag = false;
 
-        //    if (Da_Paciente.VerificarConecxion())
-        //    {
-        //        flag = true;
-        //    }
-        //    else { flag = false; }
-         
-        //    return flag ;
-        //}
+            if (Da_Paciente.VerificarConecxion())
+            {
+                flag = true;
+            }
+            else { flag = false; }
+
+            return flag;
+        }
     }
 
 }
