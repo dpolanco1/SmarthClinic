@@ -248,11 +248,6 @@ namespace aPresentationLayer
                                 paciente.Peso = txtPeso.Value;
                                 paciente.Altura = txtAltura.Value;
 
-                                Bl_Paciente.Insert(paciente);
-
-                                MessageBox.Show("Los datos del paciente fueron insertados correctamente", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
 
 
                                 //-----------------------------------------------------INSERT--------------------------------------------------------------------//
@@ -485,6 +480,93 @@ namespace aPresentationLayer
 
                 scope.Complete();
             }//fin del Using Scope
+        }
+
+        private void btnAgregarDireccion_Click(object sender, EventArgs e)
+        {
+            if (txtUbicacion.Text.Length != 0 && txtUbicacion.Text != string.Empty
+               && txtUbicacion.Text != "Agregar una direccion para el paciente" && txtDireccion.Enabled == true)
+            {
+
+                vistaDirecciones.AddNewRow();
+                vistaDirecciones.SetRowCellValue(vistaDirecciones.FocusedRowHandle, "Direcciones", txtUbicacion.Text.Trim());
+                vistaDirecciones.UpdateCurrentRow();
+                txtUbicacion.Text = string.Empty;
+                txtUbicacion.Focus();
+            }
+            else { txtUbicacion.Focus(); }
+
+
+        }
+
+        private void Frm_Pacientes_Load(object sender, EventArgs e)
+        {
+           string[] ColumnasDtgDirecciones = { "Direcciones" };
+           string[] ColumnasDtgTelefonos = { "Teléfonos" };
+           string[] ColumnasDtgContactos = { "Nombre de Contacto", "Teléfono" };
+            
+
+             DataTable dtdirecciones = new DataTable();
+             DataTable dtTelefono = new DataTable();
+             DataTable dtContactos = new DataTable();
+
+            foreach (var nombreColumna in ColumnasDtgDirecciones)
+            {
+                
+                dtdirecciones.Columns.Add(nombreColumna);
+            
+            }
+
+            foreach (var nombreColumna in ColumnasDtgTelefonos)
+            {
+                dtTelefono.Columns.Add(nombreColumna);
+            }
+
+            foreach (var nombreColumna in ColumnasDtgContactos)
+            {
+                dtContactos.Columns.Add(nombreColumna);
+            }
+             
+              dtgDirecciones.DataSource = dtdirecciones;
+              dtgTelefonos.DataSource = dtTelefono;
+              dtgContactos.DataSource = dtContactos;
+
+          
+        }
+
+        private void txtUbicacion_Enter(object sender, EventArgs e)
+        {
+            txtUbicacion.Text = string.Empty;
+            txtUbicacion.ForeColor = Color.Black;
+        }
+
+        private void txtUbicacion_Leave(object sender, EventArgs e)
+        {
+            if (txtUbicacion.Text == string.Empty)
+            {
+                txtUbicacion.Text = "Agregar una direccion para el paciente";
+                txtUbicacion.ForeColor = Color.DarkGray;
+            }
+            else if (txtUbicacion.Text != string.Empty && this.ActiveControl.Name != "btnAgregarDireccion")
+            {
+                txtUbicacion.Text = "Agregar una direccion para el paciente";
+                txtUbicacion.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void Frm_Pacientes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NUEVO = false;
+            EDITANDO = false;
+        }
+
+        private void btnAgregarDireccion_Leave(object sender, EventArgs e)
+        {
+              if (txtUbicacion.Text != string.Empty)
+            {
+                txtUbicacion.Text = "Agregar una direccion para el paciente";
+                txtUbicacion.ForeColor = Color.DarkGray;
+            }
         }
 
 

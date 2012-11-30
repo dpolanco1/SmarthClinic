@@ -32,7 +32,8 @@
             this.tabPrincipalPacientes = new DevExpress.XtraTab.XtraTabControl();
             this.tabPacientes = new DevExpress.XtraTab.XtraTabPage();
             this.grpUbicaciones = new DevExpress.XtraEditors.GroupControl();
-            this.txtTelefonoContacto = new DevExpress.XtraEditors.TextEdit();
+            this.dtgTelefonos = new DevExpress.XtraGrid.GridControl();
+            this.vistaTelefonos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnNuevo = new DevExpress.XtraBars.BarButtonItem();
@@ -47,17 +48,12 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.dtgDirecciones = new DevExpress.XtraGrid.GridControl();
+            this.vistaDirecciones = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtTelefonoContacto = new DevExpress.XtraEditors.TextEdit();
             this.txtTelefonos = new DevExpress.XtraEditors.TextEdit();
             this.dtgContactos = new DevExpress.XtraGrid.GridControl();
             this.VistaContactos = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dtgColumNombreContacto = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dtgColumTelefonoContacto = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dtgTelefonos = new DevExpress.XtraGrid.GridControl();
-            this.vistaTelefonos = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dtgColumTelefonos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dtgDirecciones = new DevExpress.XtraGrid.GridControl();
-            this.vistaDirecciones = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dtgColumDirecciones = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtContacto = new DevExpress.XtraEditors.TextEdit();
             this.txtUbicacion = new DevExpress.XtraEditors.TextEdit();
             this.btnEliminarContacto = new DevExpress.XtraEditors.SimpleButton();
@@ -127,15 +123,15 @@
             this.tabPacientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpUbicaciones)).BeginInit();
             this.grpUbicaciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonoContacto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTelefonos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vistaTelefonos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgDirecciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vistaDirecciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonoContacto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelefonos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgContactos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VistaContactos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgTelefonos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vistaTelefonos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgDirecciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vistaDirecciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContacto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUbicacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpDatos)).BeginInit();
@@ -194,11 +190,11 @@
             // 
             // grpUbicaciones
             // 
+            this.grpUbicaciones.Controls.Add(this.dtgTelefonos);
+            this.grpUbicaciones.Controls.Add(this.dtgDirecciones);
             this.grpUbicaciones.Controls.Add(this.txtTelefonoContacto);
             this.grpUbicaciones.Controls.Add(this.txtTelefonos);
             this.grpUbicaciones.Controls.Add(this.dtgContactos);
-            this.grpUbicaciones.Controls.Add(this.dtgTelefonos);
-            this.grpUbicaciones.Controls.Add(this.dtgDirecciones);
             this.grpUbicaciones.Controls.Add(this.txtContacto);
             this.grpUbicaciones.Controls.Add(this.txtUbicacion);
             this.grpUbicaciones.Controls.Add(this.btnEliminarContacto);
@@ -217,16 +213,25 @@
             this.grpUbicaciones.TabIndex = 6;
             this.grpUbicaciones.Text = "Datos de Ubicación:";
             // 
-            // txtTelefonoContacto
+            // dtgTelefonos
             // 
-            this.txtTelefonoContacto.Enabled = false;
-            this.txtTelefonoContacto.Location = new System.Drawing.Point(929, 47);
-            this.txtTelefonoContacto.MenuManager = this.barManager1;
-            this.txtTelefonoContacto.Name = "txtTelefonoContacto";
-            this.txtTelefonoContacto.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
-            this.txtTelefonoContacto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
-            this.txtTelefonoContacto.Size = new System.Drawing.Size(114, 20);
-            this.txtTelefonoContacto.TabIndex = 91;
+            this.dtgTelefonos.Location = new System.Drawing.Point(607, 75);
+            this.dtgTelefonos.MainView = this.vistaTelefonos;
+            this.dtgTelefonos.MenuManager = this.barManager1;
+            this.dtgTelefonos.Name = "dtgTelefonos";
+            this.dtgTelefonos.Size = new System.Drawing.Size(160, 114);
+            this.dtgTelefonos.TabIndex = 93;
+            this.dtgTelefonos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.vistaTelefonos});
+            // 
+            // vistaTelefonos
+            // 
+            this.vistaTelefonos.GridControl = this.dtgTelefonos;
+            this.vistaTelefonos.Name = "vistaTelefonos";
+            this.vistaTelefonos.OptionsView.ShowGroupPanel = false;
+            this.vistaTelefonos.OptionsView.ShowIndicator = false;
+            this.vistaTelefonos.OptionsView.ShowViewCaption = true;
+            this.vistaTelefonos.ViewCaption = "Teléfonos";
             // 
             // barManager1
             // 
@@ -376,6 +381,37 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1106, 40);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 497);
             // 
+            // dtgDirecciones
+            // 
+            this.dtgDirecciones.Location = new System.Drawing.Point(10, 75);
+            this.dtgDirecciones.MainView = this.vistaDirecciones;
+            this.dtgDirecciones.MenuManager = this.barManager1;
+            this.dtgDirecciones.Name = "dtgDirecciones";
+            this.dtgDirecciones.Size = new System.Drawing.Size(589, 114);
+            this.dtgDirecciones.TabIndex = 92;
+            this.dtgDirecciones.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.vistaDirecciones});
+            // 
+            // vistaDirecciones
+            // 
+            this.vistaDirecciones.GridControl = this.dtgDirecciones;
+            this.vistaDirecciones.Name = "vistaDirecciones";
+            this.vistaDirecciones.OptionsView.ShowGroupPanel = false;
+            this.vistaDirecciones.OptionsView.ShowIndicator = false;
+            this.vistaDirecciones.OptionsView.ShowViewCaption = true;
+            this.vistaDirecciones.ViewCaption = "Direcciones";
+            // 
+            // txtTelefonoContacto
+            // 
+            this.txtTelefonoContacto.Enabled = false;
+            this.txtTelefonoContacto.Location = new System.Drawing.Point(929, 47);
+            this.txtTelefonoContacto.MenuManager = this.barManager1;
+            this.txtTelefonoContacto.Name = "txtTelefonoContacto";
+            this.txtTelefonoContacto.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
+            this.txtTelefonoContacto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
+            this.txtTelefonoContacto.Size = new System.Drawing.Size(114, 20);
+            this.txtTelefonoContacto.TabIndex = 22;
+            // 
             // txtTelefonos
             // 
             this.txtTelefonos.Enabled = false;
@@ -385,7 +421,7 @@
             this.txtTelefonos.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
             this.txtTelefonos.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtTelefonos.Size = new System.Drawing.Size(108, 20);
-            this.txtTelefonos.TabIndex = 90;
+            this.txtTelefonos.TabIndex = 17;
             // 
             // dtgContactos
             // 
@@ -402,81 +438,12 @@
             // 
             // VistaContactos
             // 
-            this.VistaContactos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dtgColumNombreContacto,
-            this.dtgColumTelefonoContacto});
             this.VistaContactos.GridControl = this.dtgContactos;
             this.VistaContactos.Name = "VistaContactos";
             this.VistaContactos.OptionsView.ShowGroupPanel = false;
             this.VistaContactos.OptionsView.ShowIndicator = false;
-            // 
-            // dtgColumNombreContacto
-            // 
-            this.dtgColumNombreContacto.Caption = "Nombre Contacto";
-            this.dtgColumNombreContacto.Name = "dtgColumNombreContacto";
-            this.dtgColumNombreContacto.Visible = true;
-            this.dtgColumNombreContacto.VisibleIndex = 0;
-            // 
-            // dtgColumTelefonoContacto
-            // 
-            this.dtgColumTelefonoContacto.Caption = "Teléfono";
-            this.dtgColumTelefonoContacto.Name = "dtgColumTelefonoContacto";
-            this.dtgColumTelefonoContacto.Visible = true;
-            this.dtgColumTelefonoContacto.VisibleIndex = 1;
-            // 
-            // dtgTelefonos
-            // 
-            this.dtgTelefonos.Location = new System.Drawing.Point(607, 74);
-            this.dtgTelefonos.MainView = this.vistaTelefonos;
-            this.dtgTelefonos.MenuManager = this.barManager1;
-            this.dtgTelefonos.Name = "dtgTelefonos";
-            this.dtgTelefonos.Size = new System.Drawing.Size(160, 114);
-            this.dtgTelefonos.TabIndex = 88;
-            this.dtgTelefonos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.vistaTelefonos});
-            // 
-            // vistaTelefonos
-            // 
-            this.vistaTelefonos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dtgColumTelefonos});
-            this.vistaTelefonos.GridControl = this.dtgTelefonos;
-            this.vistaTelefonos.Name = "vistaTelefonos";
-            this.vistaTelefonos.OptionsView.ShowGroupPanel = false;
-            this.vistaTelefonos.OptionsView.ShowIndicator = false;
-            // 
-            // dtgColumTelefonos
-            // 
-            this.dtgColumTelefonos.Caption = "Teléfonos";
-            this.dtgColumTelefonos.Name = "dtgColumTelefonos";
-            this.dtgColumTelefonos.Visible = true;
-            this.dtgColumTelefonos.VisibleIndex = 0;
-            // 
-            // dtgDirecciones
-            // 
-            this.dtgDirecciones.Location = new System.Drawing.Point(11, 75);
-            this.dtgDirecciones.MainView = this.vistaDirecciones;
-            this.dtgDirecciones.MenuManager = this.barManager1;
-            this.dtgDirecciones.Name = "dtgDirecciones";
-            this.dtgDirecciones.Size = new System.Drawing.Size(588, 113);
-            this.dtgDirecciones.TabIndex = 87;
-            this.dtgDirecciones.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.vistaDirecciones});
-            // 
-            // vistaDirecciones
-            // 
-            this.vistaDirecciones.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dtgColumDirecciones});
-            this.vistaDirecciones.GridControl = this.dtgDirecciones;
-            this.vistaDirecciones.Name = "vistaDirecciones";
-            this.vistaDirecciones.OptionsView.ShowGroupPanel = false;
-            this.vistaDirecciones.OptionsView.ShowIndicator = false;
-            // 
-            // dtgColumDirecciones
-            // 
-            this.dtgColumDirecciones.Caption = "Direcciones";
-            this.dtgColumDirecciones.Name = "dtgColumDirecciones";
-            this.dtgColumDirecciones.Visible = true;
-            this.dtgColumDirecciones.VisibleIndex = 0;
+            this.VistaContactos.OptionsView.ShowViewCaption = true;
+            this.VistaContactos.ViewCaption = "Contactos";
             // 
             // txtContacto
             // 
@@ -485,7 +452,7 @@
             this.txtContacto.MenuManager = this.barManager1;
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(150, 20);
-            this.txtContacto.TabIndex = 81;
+            this.txtContacto.TabIndex = 20;
             // 
             // txtUbicacion
             // 
@@ -494,7 +461,9 @@
             this.txtUbicacion.MenuManager = this.barManager1;
             this.txtUbicacion.Name = "txtUbicacion";
             this.txtUbicacion.Size = new System.Drawing.Size(537, 20);
-            this.txtUbicacion.TabIndex = 80;
+            this.txtUbicacion.TabIndex = 14;
+            this.txtUbicacion.Enter += new System.EventHandler(this.txtUbicacion_Enter);
+            this.txtUbicacion.Leave += new System.EventHandler(this.txtUbicacion_Leave);
             // 
             // btnEliminarContacto
             // 
@@ -503,7 +472,7 @@
             this.btnEliminarContacto.Location = new System.Drawing.Point(1075, 47);
             this.btnEliminarContacto.Name = "btnEliminarContacto";
             this.btnEliminarContacto.Size = new System.Drawing.Size(20, 21);
-            this.btnEliminarContacto.TabIndex = 36;
+            this.btnEliminarContacto.TabIndex = 24;
             // 
             // btnAgregarContacto
             // 
@@ -512,7 +481,7 @@
             this.btnAgregarContacto.Location = new System.Drawing.Point(1049, 47);
             this.btnAgregarContacto.Name = "btnAgregarContacto";
             this.btnAgregarContacto.Size = new System.Drawing.Size(20, 21);
-            this.btnAgregarContacto.TabIndex = 35;
+            this.btnAgregarContacto.TabIndex = 23;
             // 
             // btnEliminarTelefonos
             // 
@@ -521,7 +490,7 @@
             this.btnEliminarTelefonos.Location = new System.Drawing.Point(747, 47);
             this.btnEliminarTelefonos.Name = "btnEliminarTelefonos";
             this.btnEliminarTelefonos.Size = new System.Drawing.Size(20, 21);
-            this.btnEliminarTelefonos.TabIndex = 34;
+            this.btnEliminarTelefonos.TabIndex = 19;
             // 
             // btnAgregarTelefonos
             // 
@@ -530,7 +499,7 @@
             this.btnAgregarTelefonos.Location = new System.Drawing.Point(721, 47);
             this.btnAgregarTelefonos.Name = "btnAgregarTelefonos";
             this.btnAgregarTelefonos.Size = new System.Drawing.Size(20, 21);
-            this.btnAgregarTelefonos.TabIndex = 33;
+            this.btnAgregarTelefonos.TabIndex = 18;
             // 
             // btnEliminarDireccion
             // 
@@ -539,7 +508,7 @@
             this.btnEliminarDireccion.Location = new System.Drawing.Point(579, 47);
             this.btnEliminarDireccion.Name = "btnEliminarDireccion";
             this.btnEliminarDireccion.Size = new System.Drawing.Size(20, 21);
-            this.btnEliminarDireccion.TabIndex = 32;
+            this.btnEliminarDireccion.TabIndex = 16;
             // 
             // btnAgregarDireccion
             // 
@@ -548,7 +517,9 @@
             this.btnAgregarDireccion.Location = new System.Drawing.Point(553, 47);
             this.btnAgregarDireccion.Name = "btnAgregarDireccion";
             this.btnAgregarDireccion.Size = new System.Drawing.Size(20, 21);
-            this.btnAgregarDireccion.TabIndex = 31;
+            this.btnAgregarDireccion.TabIndex = 15;
+            this.btnAgregarDireccion.Click += new System.EventHandler(this.btnAgregarDireccion_Click);
+            this.btnAgregarDireccion.Leave += new System.EventHandler(this.btnAgregarDireccion_Leave);
             // 
             // labelControl3
             // 
@@ -631,7 +602,7 @@
             this.txtEdad.Properties.Mask.EditMask = "n2";
             this.txtEdad.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.txtEdad.Size = new System.Drawing.Size(49, 20);
-            this.txtEdad.TabIndex = 84;
+            this.txtEdad.TabIndex = 11;
             // 
             // txtIdentificacion
             // 
@@ -640,7 +611,7 @@
             this.txtIdentificacion.MenuManager = this.barManager1;
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(119, 20);
-            this.txtIdentificacion.TabIndex = 83;
+            this.txtIdentificacion.TabIndex = 4;
             // 
             // txtDireccion
             // 
@@ -651,7 +622,7 @@
             this.txtDireccion.MenuManager = this.barManager1;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(447, 20);
-            this.txtDireccion.TabIndex = 82;
+            this.txtDireccion.TabIndex = 13;
             // 
             // txtEmail
             // 
@@ -660,7 +631,7 @@
             this.txtEmail.MenuManager = this.barManager1;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(270, 20);
-            this.txtEmail.TabIndex = 81;
+            this.txtEmail.TabIndex = 12;
             // 
             // txtApellidos
             // 
@@ -669,7 +640,7 @@
             this.txtApellidos.MenuManager = this.barManager1;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(205, 20);
-            this.txtApellidos.TabIndex = 80;
+            this.txtApellidos.TabIndex = 2;
             // 
             // txtNombres
             // 
@@ -678,7 +649,7 @@
             this.txtNombres.MenuManager = this.barManager1;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(205, 20);
-            this.txtNombres.TabIndex = 79;
+            this.txtNombres.TabIndex = 1;
             // 
             // txtIDPaciente
             // 
@@ -687,7 +658,7 @@
             this.txtIDPaciente.MenuManager = this.barManager1;
             this.txtIDPaciente.Name = "txtIDPaciente";
             this.txtIDPaciente.Size = new System.Drawing.Size(78, 20);
-            this.txtIDPaciente.TabIndex = 78;
+            this.txtIDPaciente.TabIndex = 0;
             // 
             // cmbTipoPaciente
             // 
@@ -701,7 +672,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbTipoPaciente.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTipoPaciente.Size = new System.Drawing.Size(221, 20);
-            this.cmbTipoPaciente.TabIndex = 74;
+            this.cmbTipoPaciente.TabIndex = 6;
             // 
             // cmbGenero
             // 
@@ -713,7 +684,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbGenero.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbGenero.Size = new System.Drawing.Size(93, 20);
-            this.cmbGenero.TabIndex = 73;
+            this.cmbGenero.TabIndex = 5;
             // 
             // txtAltura
             // 
@@ -728,9 +699,9 @@
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtAltura.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.txtAltura.Properties.Mask.EditMask = "f";
             this.txtAltura.Size = new System.Drawing.Size(49, 20);
-            this.txtAltura.TabIndex = 71;
+            this.txtAltura.TabIndex = 10;
             // 
             // txtPeso
             // 
@@ -745,9 +716,9 @@
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtPeso.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.txtPeso.Properties.Mask.EditMask = "f";
             this.txtPeso.Size = new System.Drawing.Size(49, 20);
-            this.txtPeso.TabIndex = 70;
+            this.txtPeso.TabIndex = 9;
             // 
             // cmbTipoSangre
             // 
@@ -759,7 +730,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbTipoSangre.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTipoSangre.Size = new System.Drawing.Size(49, 20);
-            this.cmbTipoSangre.TabIndex = 69;
+            this.cmbTipoSangre.TabIndex = 8;
             // 
             // cmbEstadoCivil
             // 
@@ -771,7 +742,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbEstadoCivil.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbEstadoCivil.Size = new System.Drawing.Size(78, 20);
-            this.cmbEstadoCivil.TabIndex = 68;
+            this.cmbEstadoCivil.TabIndex = 7;
             // 
             // cmbTipoIdentificacion
             // 
@@ -783,7 +754,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown)});
             this.cmbTipoIdentificacion.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTipoIdentificacion.Size = new System.Drawing.Size(127, 20);
-            this.cmbTipoIdentificacion.TabIndex = 65;
+            this.cmbTipoIdentificacion.TabIndex = 3;
             // 
             // labelControl4
             // 
@@ -943,9 +914,9 @@
             // 
             this.lblIDPaciente.Location = new System.Drawing.Point(11, 35);
             this.lblIDPaciente.Name = "lblIDPaciente";
-            this.lblIDPaciente.Size = new System.Drawing.Size(11, 13);
+            this.lblIDPaciente.Size = new System.Drawing.Size(52, 13);
             this.lblIDPaciente.TabIndex = 0;
-            this.lblIDPaciente.Text = "ID";
+            this.lblIDPaciente.Text = "# Paciente";
             // 
             // grpMasDatos
             // 
@@ -1143,21 +1114,23 @@
             this.Name = "Frm_Pacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Pacientes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Pacientes_FormClosed);
+            this.Load += new System.EventHandler(this.Frm_Pacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabPrincipalPacientes)).EndInit();
             this.tabPrincipalPacientes.ResumeLayout(false);
             this.tabPacientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpUbicaciones)).EndInit();
             this.grpUbicaciones.ResumeLayout(false);
             this.grpUbicaciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonoContacto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTelefonos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vistaTelefonos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgDirecciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vistaDirecciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelefonoContacto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelefonos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgContactos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VistaContactos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgTelefonos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vistaTelefonos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgDirecciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vistaDirecciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContacto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUbicacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpDatos)).EndInit();
@@ -1263,16 +1236,8 @@
         private DevExpress.XtraEditors.TextEdit txtIDPaciente;
         private DevExpress.XtraEditors.TextEdit txtUbicacion;
         private DevExpress.XtraEditors.TextEdit txtContacto;
-        private DevExpress.XtraGrid.GridControl dtgDirecciones;
-        private DevExpress.XtraGrid.Views.Grid.GridView vistaDirecciones;
         private DevExpress.XtraGrid.GridControl dtgContactos;
         private DevExpress.XtraGrid.Views.Grid.GridView VistaContactos;
-        private DevExpress.XtraGrid.Columns.GridColumn dtgColumNombreContacto;
-        private DevExpress.XtraGrid.Columns.GridColumn dtgColumTelefonoContacto;
-        private DevExpress.XtraGrid.GridControl dtgTelefonos;
-        private DevExpress.XtraGrid.Views.Grid.GridView vistaTelefonos;
-        private DevExpress.XtraGrid.Columns.GridColumn dtgColumTelefonos;
-        private DevExpress.XtraGrid.Columns.GridColumn dtgColumDirecciones;
         private DevExpress.XtraGrid.GridControl dtgConsultas;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraGrid.Columns.GridColumn dtgColumFecha;
@@ -1291,6 +1256,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn dtgColumProfesionHistorial;
         private DevExpress.XtraGrid.Columns.GridColumn dtgColumSintomasHistorial;
         private DevExpress.XtraEditors.SpinEdit txtEdad;
+        private DevExpress.XtraGrid.GridControl dtgTelefonos;
+        private DevExpress.XtraGrid.Views.Grid.GridView vistaTelefonos;
+        private DevExpress.XtraGrid.GridControl dtgDirecciones;
+        private DevExpress.XtraGrid.Views.Grid.GridView vistaDirecciones;
 
     }
 }
