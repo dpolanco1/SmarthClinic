@@ -114,6 +114,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Origenes de Datos\" />
     <Folder Include="Reportes\" />
   </ItemGroup>
   <ItemGroup>

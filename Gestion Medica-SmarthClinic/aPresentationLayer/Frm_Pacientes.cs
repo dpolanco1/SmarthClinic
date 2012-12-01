@@ -71,10 +71,14 @@ namespace aPresentationLayer
                 txtNombres.Focus();
 
                 //Agrego una descripcion para el control
-                txtUbicacion.Text = "Agregar una direccion para el paciente";
+                txtUbicacion.Text = "Agregar una Dirección para el paciente";
                 txtUbicacion.ForeColor = Color.DarkGray;
-                txtContacto.Text = "Agregar nombre de contacto";
+                txtContacto.Text = "Agregar Nombre de Contacto";
                 txtContacto.ForeColor = Color.DarkGray;
+                txtTelefonos.Text = "Agregar Teléfono";
+                txtTelefonos.ForeColor = Color.DarkGray;
+                txtTelefonoContacto.Text = "Agregar Teléfono";
+                txtTelefonoContacto.ForeColor = Color.DarkGray;
 
             }
         }
@@ -163,7 +167,7 @@ namespace aPresentationLayer
                              
      
                                 //Limpio los Txt
-                           //     Controles.VaciarText(frm_pacientes);
+                               Controles.VaciarText(frm_pacientes);
 
                                 //Limpio los DatagriedView
                                 Controles.VaciarDGV(frm_pacientes);
@@ -230,40 +234,20 @@ namespace aPresentationLayer
                         {
                             try
                             {
-
-                                //Valores Entidad Paciente
-                                txtIDPaciente.Text = Convert.ToString(Bl_Paciente.SearchIDPaciente());//para actualizar
-                                paciente.IDPaciente = txtIDPaciente.Text.Trim();
-                                paciente.Nombres = txtNombres.Text;
-                                paciente.Apellidos = txtApellidos.Text;
-                                paciente.IDTipoIdentifacion = cmbTipoIdentificacion.SelectedIndex;
-                                paciente.Identificacion = txtIdentificacion.Text;
-                                paciente.Edad = txtEdad.Text.Trim();
-                                paciente.Genero = cmbGenero.Text;
-                                paciente.EstadoCivil = cmbEstadoCivil.Text.Trim();
-                                paciente.TipoSangre = cmbTipoSangre.Text.Trim();
-                                paciente.TipoPaciente = cmbTipoPaciente.SelectedIndex;
-                                paciente.Email = txtEmail.Text;
-                                paciente.Direccion = txtDireccion.Text;
-                                paciente.Peso = txtPeso.Value;
-                                paciente.Altura = txtAltura.Value;
-
-
-
+                              
                                 //-----------------------------------------------------INSERT--------------------------------------------------------------------//
 
                                 if (NUEVO == true)
                                 {
 
-
-                                    //Valores Entidad Direcciones
-                                    if (vistaDirecciones.RowCount > 1)
+                                //Valores Entidad Direcciones
+                                    if (vistaDirecciones.RowCount > 0)
                                     {
-                                        for (int i = 0; i < vistaDirecciones.RowCount - 1; i++)
+                                        for (int i = 0; i < vistaDirecciones.RowCount; i++)
                                         {
 
                                             //paso el valor de la columna a la entidad al parecer es ese.
-                                            direcciones.Direccion = Convert.ToString(vistaDirecciones.GetRowCellValue(i, "dtgColumDirecciones")).Trim();
+                                            direcciones.Direccion = Convert.ToString(vistaDirecciones.GetRowCellValue(i, "Direcciones")).Trim();
 
 
                                             if (!Bl_Direcciones.Insert(direcciones))
@@ -272,17 +256,16 @@ namespace aPresentationLayer
                                                 MessageBox.Show("Hay problemas para insertar las direcciones del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             }
 
-                                        }//fin del for dtgDirecciones
-
+                                        }//fin del for dtgDireccionn
 
                                     }//fin insert direcciones
 
-                                    /*   if (vistaTelefonos.RowCount > 1 && seGuardoDirecciones == true)
+                                    if (vistaTelefonos.RowCount > 0 && seGuardoDirecciones == true)
                                        {
-                                           for (int i = 0; i < vistaTelefonos.RowCount - 1; i++)
+                                           for (int i = 0; i < vistaTelefonos.RowCount; i++)
                                            {
 
-                                               telefonos.Telefono = Convert.ToString(vistaTelefonos.GetGroupRowValue(i)).Trim();
+                                               telefonos.Telefono = Convert.ToString(vistaTelefonos.GetRowCellValue(i, "Teléfonos")).Trim();
 
                                                if (!Bl_Telefono.Insert(telefonos))
                                                {
@@ -295,24 +278,55 @@ namespace aPresentationLayer
 
                                        }//fin insert Telefonos
 
-                                       if (VistaContactos.RowCount > 1 && seGuardoTelefonos == true)
-                                       {
-                                           for (int i = 0; i < VistaContactos.RowCount - 1; i++)
-                                           {
-                                               //como resuelve este entonces? manin hay dos columnas y una fila 
-                                               contacto.Contacto = Convert.ToString(VistaContactos.GetDataRow(i));
-                                               contacto.Telefono = Convert.ToString(dtgContactos.Rows[i].Cells[1].Value).Trim();
+                                    if (VistaContactos.RowCount > 0 && seGuardoTelefonos == true)
+                                    {
+                                        for (int i = 0; i < VistaContactos.RowCount ; i++)
+                                        {
 
-                                               if (!Bl_Contacto.Insert(contacto))
-                                               {
-                                                   seGuardoContactos = false;
-                                                   MessageBox.Show("Hay problemas para insertar los contactos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                               }
+                                            contacto.Contacto = Convert.ToString(VistaContactos.GetRowCellValue(i, "Nombre de Contacto")).Trim();
+                                            contacto.Telefono = Convert.ToString(VistaContactos.GetRowCellValue(i, "Teléfono")).Trim();
+
+                                            if (!Bl_Contacto.Insert(contacto))
+                                            {
+                                                seGuardoContactos = false;
+                                                MessageBox.Show("Hay problemas para insertar los contactos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
 
 
-                                           }//fin del for dtgContactos
+                                        }//fin del for dtgContactos
 
-                                       }//fin insert Contactos
+                                    }//fin insert Contactos
+
+
+
+
+                                       //Valores Entidad Paciente
+                                       txtIDPaciente.Text = Convert.ToString(Bl_Paciente.SearchIDPaciente());//para actualizar
+                                       paciente.IDPaciente = txtIDPaciente.Text.Trim();
+                                       paciente.Nombres = txtNombres.Text;
+                                       paciente.Apellidos = txtApellidos.Text;
+                                       paciente.IDTipoIdentifacion = cmbTipoIdentificacion.SelectedIndex;
+                                       paciente.Identificacion = txtIdentificacion.Text;
+                                       paciente.Edad = txtEdad.Text.Trim();
+                                       paciente.Genero = cmbGenero.Text;
+                                       paciente.EstadoCivil = cmbEstadoCivil.Text.Trim();
+                                       paciente.TipoSangre = cmbTipoSangre.Text.Trim();
+                                       paciente.TipoPaciente = cmbTipoPaciente.SelectedIndex;
+                                       paciente.Email = txtEmail.Text;
+                                       paciente.Direccion = txtDireccion.Text;
+                                       paciente.Peso = txtPeso.Value;
+                                       paciente.Altura = txtAltura.Value;
+
+
+                                       Bl_Paciente.Insert(paciente);
+
+                                       MessageBox.Show("El paciente se insetó correctamente ", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+                                    /*
+
+                                     
 
                                        if (seGuardoDirecciones == true && seGuardoTelefonos == true && seGuardoContactos == true)
                                        {
@@ -531,6 +545,8 @@ namespace aPresentationLayer
               dtgTelefonos.DataSource = dtTelefono;
               dtgContactos.DataSource = dtContactos;
 
+
+
           
         }
 
@@ -547,7 +563,7 @@ namespace aPresentationLayer
                 txtUbicacion.Text = "Agregar una direccion para el paciente";
                 txtUbicacion.ForeColor = Color.DarkGray;
             }
-            else if (txtUbicacion.Text != string.Empty && this.ActiveControl.Name != "btnAgregarDireccion")
+            else if (txtUbicacion.Text != string.Empty && this.ActiveControl.Name != this.btnAgregarDireccion.Name)
             {
                 txtUbicacion.Text = "Agregar una direccion para el paciente";
                 txtUbicacion.ForeColor = Color.DarkGray;
@@ -569,6 +585,123 @@ namespace aPresentationLayer
             }
         }
 
+        private void btnAgregarTelefonos_Click(object sender, EventArgs e)
+        {
+            if (txtTelefonos.Text.Length != 0 && txtTelefonos.Text != string.Empty)
+            {
+                vistaTelefonos.AddNewRow();
+                vistaTelefonos.SetRowCellValue(vistaTelefonos.FocusedRowHandle, "Teléfonos", txtTelefonos.Text.Trim());
+                vistaTelefonos.UpdateCurrentRow();
+                txtTelefonos.Text = string.Empty;
+                txtTelefonos.Focus();
+            }
+            else { txtTelefonos.Focus(); }
+        }
+
+        private void txtTelefonos_Enter(object sender, EventArgs e)
+        {
+            txtTelefonos.Text = string.Empty;
+            txtTelefonos.ForeColor = Color.Black;
+        }
+
+        private void txtTelefonos_Leave(object sender, EventArgs e)
+        {
+
+            if (txtTelefonos.Text == string.Empty)
+            {
+                txtTelefonos.Text = "Agregar Télefono";
+                txtTelefonos.ForeColor = Color.DarkGray;
+            }
+            else if (txtTelefonos.Text != string.Empty && this.ActiveControl.Name != this.btnAgregarTelefonos.Name)
+            {
+                txtTelefonos.Text = "Agregar Télefono";
+                txtTelefonos.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void btnAgregarTelefonos_Leave(object sender, EventArgs e)
+        {
+            if (txtTelefonos.Text != string.Empty)
+            {
+                txtTelefonos.Text = "Agregar Télefono";
+                txtTelefonos.ForeColor = Color.DarkGray;
+            }
+            else 
+            {
+                txtTelefonos.Text = "Agregar Télefono";
+                txtTelefonos.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void btnEliminarDireccion_Click(object sender, EventArgs e)
+        {
+            if (vistaDirecciones.RowCount > 0 && txtUbicacion.Enabled == true)
+            {
+                vistaDirecciones.DeleteSelectedRows();
+            }
+        }
+
+        private void btnEliminarTelefonos_Click(object sender, EventArgs e)
+        {
+            if (vistaTelefonos.RowCount > 0 && txtTelefonos.Enabled == true)
+            {
+                vistaTelefonos.DeleteSelectedRows();
+            }
+        }
+
+        private void btnEliminarContacto_Click(object sender, EventArgs e)
+        {
+            if (VistaContactos.RowCount > 0 && txtContacto.Enabled == true && txtTelefonos.Enabled == true)
+            {
+                VistaContactos.DeleteSelectedRows();
+            }
+        }
+
+        private void btnAgregarContacto_Click(object sender, EventArgs e)
+        {
+            if (txtContacto.Text != string.Empty && txtTelefonoContacto.Text != string.Empty)
+            {
+                VistaContactos.AddNewRow();
+                VistaContactos.SetRowCellValue(VistaContactos.FocusedRowHandle, "Nombre de Contacto", txtContacto.Text.Trim());
+                VistaContactos.SetRowCellValue(VistaContactos.FocusedRowHandle, "Teléfono", txtTelefonoContacto.Text.Trim());
+                VistaContactos.UpdateCurrentRow();
+                txtContacto.Text = string.Empty;
+                txtTelefonoContacto.Text = string.Empty;
+                txtContacto.Focus();
+            }
+            else { txtContacto.Focus(); }
+        }
+
+        private void txtContacto_Enter(object sender, EventArgs e)
+        {
+            txtContacto.Text = string.Empty;
+            txtContacto.ForeColor = Color.Black;
+        }
+
+        private void txtTelefonoContacto_Enter(object sender, EventArgs e)
+        {
+            txtTelefonoContacto.Text = string.Empty;
+            txtTelefonoContacto.ForeColor = Color.Black;
+        }
+
+        private void txtContacto_Leave(object sender, EventArgs e)
+        {
+            if (txtContacto.Text == string.Empty)
+            {
+                txtContacto.Text = "Agregar Nombre de Contacto";
+                txtContacto.ForeColor = Color.DarkGray;
+            }
+            else if (txtContacto.Text != string.Empty &&   this.ActiveControl.Name != this.txtTelefonoContacto.Name)
+            {
+                txtContacto.Text = "Agregar Nombre de Contacto";
+                txtContacto.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void btnEliminarContacto_Leave(object sender, EventArgs e)
+        {
+            txtNombres.Focus();
+        }
 
 
     }

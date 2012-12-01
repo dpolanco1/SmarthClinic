@@ -174,7 +174,7 @@
             this.tabPrincipalPacientes.Name = "tabPrincipalPacientes";
             this.tabPrincipalPacientes.SelectedTabPage = this.tabPacientes;
             this.tabPrincipalPacientes.Size = new System.Drawing.Size(1106, 664);
-            this.tabPrincipalPacientes.TabIndex = 33;
+            this.tabPrincipalPacientes.TabIndex = 90;
             this.tabPrincipalPacientes.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPacientes,
             this.tabListaPacientes});
@@ -207,10 +207,10 @@
             this.grpUbicaciones.Controls.Add(this.lblTelefono);
             this.grpUbicaciones.Controls.Add(this.lblDirecciones);
             this.grpUbicaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpUbicaciones.Location = new System.Drawing.Point(0, 138);
+            this.grpUbicaciones.Location = new System.Drawing.Point(0, 132);
             this.grpUbicaciones.Name = "grpUbicaciones";
             this.grpUbicaciones.Size = new System.Drawing.Size(1100, 192);
-            this.grpUbicaciones.TabIndex = 6;
+            this.grpUbicaciones.TabIndex = 92;
             this.grpUbicaciones.Text = "Datos de Ubicación:";
             // 
             // dtgTelefonos
@@ -220,7 +220,7 @@
             this.dtgTelefonos.MenuManager = this.barManager1;
             this.dtgTelefonos.Name = "dtgTelefonos";
             this.dtgTelefonos.Size = new System.Drawing.Size(160, 114);
-            this.dtgTelefonos.TabIndex = 93;
+            this.dtgTelefonos.TabIndex = 32;
             this.dtgTelefonos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vistaTelefonos});
             // 
@@ -228,6 +228,7 @@
             // 
             this.vistaTelefonos.GridControl = this.dtgTelefonos;
             this.vistaTelefonos.Name = "vistaTelefonos";
+            this.vistaTelefonos.OptionsBehavior.ReadOnly = true;
             this.vistaTelefonos.OptionsView.ShowGroupPanel = false;
             this.vistaTelefonos.OptionsView.ShowIndicator = false;
             this.vistaTelefonos.OptionsView.ShowViewCaption = true;
@@ -364,22 +365,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 537);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1106, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 535);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1106, 25);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 497);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 495);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1106, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 497);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 495);
             // 
             // dtgDirecciones
             // 
@@ -388,7 +389,7 @@
             this.dtgDirecciones.MenuManager = this.barManager1;
             this.dtgDirecciones.Name = "dtgDirecciones";
             this.dtgDirecciones.Size = new System.Drawing.Size(589, 114);
-            this.dtgDirecciones.TabIndex = 92;
+            this.dtgDirecciones.TabIndex = 31;
             this.dtgDirecciones.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vistaDirecciones});
             // 
@@ -396,6 +397,9 @@
             // 
             this.vistaDirecciones.GridControl = this.dtgDirecciones;
             this.vistaDirecciones.Name = "vistaDirecciones";
+            this.vistaDirecciones.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.vistaDirecciones.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.vistaDirecciones.OptionsBehavior.ReadOnly = true;
             this.vistaDirecciones.OptionsView.ShowGroupPanel = false;
             this.vistaDirecciones.OptionsView.ShowIndicator = false;
             this.vistaDirecciones.OptionsView.ShowViewCaption = true;
@@ -410,7 +414,8 @@
             this.txtTelefonoContacto.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
             this.txtTelefonoContacto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtTelefonoContacto.Size = new System.Drawing.Size(114, 20);
-            this.txtTelefonoContacto.TabIndex = 22;
+            this.txtTelefonoContacto.TabIndex = 21;
+            this.txtTelefonoContacto.Enter += new System.EventHandler(this.txtTelefonoContacto_Enter);
             // 
             // txtTelefonos
             // 
@@ -422,6 +427,8 @@
             this.txtTelefonos.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtTelefonos.Size = new System.Drawing.Size(108, 20);
             this.txtTelefonos.TabIndex = 17;
+            this.txtTelefonos.Enter += new System.EventHandler(this.txtTelefonos_Enter);
+            this.txtTelefonos.Leave += new System.EventHandler(this.txtTelefonos_Leave);
             // 
             // dtgContactos
             // 
@@ -432,7 +439,7 @@
             this.dtgContactos.MenuManager = this.barManager1;
             this.dtgContactos.Name = "dtgContactos";
             this.dtgContactos.Size = new System.Drawing.Size(322, 114);
-            this.dtgContactos.TabIndex = 89;
+            this.dtgContactos.TabIndex = 33;
             this.dtgContactos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.VistaContactos});
             // 
@@ -440,6 +447,7 @@
             // 
             this.VistaContactos.GridControl = this.dtgContactos;
             this.VistaContactos.Name = "VistaContactos";
+            this.VistaContactos.OptionsBehavior.ReadOnly = true;
             this.VistaContactos.OptionsView.ShowGroupPanel = false;
             this.VistaContactos.OptionsView.ShowIndicator = false;
             this.VistaContactos.OptionsView.ShowViewCaption = true;
@@ -453,6 +461,8 @@
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(150, 20);
             this.txtContacto.TabIndex = 20;
+            this.txtContacto.Enter += new System.EventHandler(this.txtContacto_Enter);
+            this.txtContacto.Leave += new System.EventHandler(this.txtContacto_Leave);
             // 
             // txtUbicacion
             // 
@@ -472,7 +482,9 @@
             this.btnEliminarContacto.Location = new System.Drawing.Point(1075, 47);
             this.btnEliminarContacto.Name = "btnEliminarContacto";
             this.btnEliminarContacto.Size = new System.Drawing.Size(20, 21);
-            this.btnEliminarContacto.TabIndex = 24;
+            this.btnEliminarContacto.TabIndex = 23;
+            this.btnEliminarContacto.Click += new System.EventHandler(this.btnEliminarContacto_Click);
+            this.btnEliminarContacto.Leave += new System.EventHandler(this.btnEliminarContacto_Leave);
             // 
             // btnAgregarContacto
             // 
@@ -481,7 +493,8 @@
             this.btnAgregarContacto.Location = new System.Drawing.Point(1049, 47);
             this.btnAgregarContacto.Name = "btnAgregarContacto";
             this.btnAgregarContacto.Size = new System.Drawing.Size(20, 21);
-            this.btnAgregarContacto.TabIndex = 23;
+            this.btnAgregarContacto.TabIndex = 22;
+            this.btnAgregarContacto.Click += new System.EventHandler(this.btnAgregarContacto_Click);
             // 
             // btnEliminarTelefonos
             // 
@@ -491,6 +504,7 @@
             this.btnEliminarTelefonos.Name = "btnEliminarTelefonos";
             this.btnEliminarTelefonos.Size = new System.Drawing.Size(20, 21);
             this.btnEliminarTelefonos.TabIndex = 19;
+            this.btnEliminarTelefonos.Click += new System.EventHandler(this.btnEliminarTelefonos_Click);
             // 
             // btnAgregarTelefonos
             // 
@@ -500,6 +514,8 @@
             this.btnAgregarTelefonos.Name = "btnAgregarTelefonos";
             this.btnAgregarTelefonos.Size = new System.Drawing.Size(20, 21);
             this.btnAgregarTelefonos.TabIndex = 18;
+            this.btnAgregarTelefonos.Click += new System.EventHandler(this.btnAgregarTelefonos_Click);
+            this.btnAgregarTelefonos.Leave += new System.EventHandler(this.btnAgregarTelefonos_Leave);
             // 
             // btnEliminarDireccion
             // 
@@ -509,6 +525,7 @@
             this.btnEliminarDireccion.Name = "btnEliminarDireccion";
             this.btnEliminarDireccion.Size = new System.Drawing.Size(20, 21);
             this.btnEliminarDireccion.TabIndex = 16;
+            this.btnEliminarDireccion.Click += new System.EventHandler(this.btnEliminarDireccion_Click);
             // 
             // btnAgregarDireccion
             // 
@@ -582,8 +599,8 @@
             this.grpDatos.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpDatos.Location = new System.Drawing.Point(0, 0);
             this.grpDatos.Name = "grpDatos";
-            this.grpDatos.Size = new System.Drawing.Size(1100, 138);
-            this.grpDatos.TabIndex = 5;
+            this.grpDatos.Size = new System.Drawing.Size(1100, 132);
+            this.grpDatos.TabIndex = 91;
             this.grpDatos.Text = "Datos del Paciente";
             // 
             // txtEdad
@@ -670,6 +687,10 @@
             this.cmbTipoPaciente.Name = "cmbTipoPaciente";
             this.cmbTipoPaciente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTipoPaciente.Properties.Items.AddRange(new object[] {
+            "",
+            "ARS Humano",
+            "ARS Palic"});
             this.cmbTipoPaciente.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTipoPaciente.Size = new System.Drawing.Size(221, 20);
             this.cmbTipoPaciente.TabIndex = 6;
@@ -682,6 +703,10 @@
             this.cmbGenero.Name = "cmbGenero";
             this.cmbGenero.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbGenero.Properties.Items.AddRange(new object[] {
+            "",
+            "Masculino",
+            "Femenino"});
             this.cmbGenero.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbGenero.Size = new System.Drawing.Size(93, 20);
             this.cmbGenero.TabIndex = 5;
@@ -728,6 +753,14 @@
             this.cmbTipoSangre.Name = "cmbTipoSangre";
             this.cmbTipoSangre.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTipoSangre.Properties.Items.AddRange(new object[] {
+            "",
+            "A+",
+            "A-",
+            "B+",
+            "B-",
+            "O+",
+            "O-"});
             this.cmbTipoSangre.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTipoSangre.Size = new System.Drawing.Size(49, 20);
             this.cmbTipoSangre.TabIndex = 8;
@@ -740,6 +773,10 @@
             this.cmbEstadoCivil.Name = "cmbEstadoCivil";
             this.cmbEstadoCivil.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbEstadoCivil.Properties.Items.AddRange(new object[] {
+            "",
+            "Soltero",
+            "Casado"});
             this.cmbEstadoCivil.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbEstadoCivil.Size = new System.Drawing.Size(78, 20);
             this.cmbEstadoCivil.TabIndex = 7;
@@ -752,6 +789,12 @@
             this.cmbTipoIdentificacion.Name = "cmbTipoIdentificacion";
             this.cmbTipoIdentificacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown)});
+            this.cmbTipoIdentificacion.Properties.Items.AddRange(new object[] {
+            "",
+            "Cédula",
+            "RNC",
+            "Pasaporte",
+            "N/A"});
             this.cmbTipoIdentificacion.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTipoIdentificacion.Size = new System.Drawing.Size(127, 20);
             this.cmbTipoIdentificacion.TabIndex = 3;
@@ -925,7 +968,7 @@
             this.grpMasDatos.Location = new System.Drawing.Point(0, 333);
             this.grpMasDatos.Name = "grpMasDatos";
             this.grpMasDatos.Size = new System.Drawing.Size(1100, 305);
-            this.grpMasDatos.TabIndex = 11;
+            this.grpMasDatos.TabIndex = 93;
             this.grpMasDatos.Text = "Mas Datos:";
             // 
             // TabMasInfo
@@ -937,7 +980,7 @@
             this.TabMasInfo.Name = "TabMasInfo";
             this.TabMasInfo.SelectedTabPage = this.tbpConsultas;
             this.TabMasInfo.Size = new System.Drawing.Size(1096, 281);
-            this.TabMasInfo.TabIndex = 31;
+            this.TabMasInfo.TabIndex = 34;
             this.TabMasInfo.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tbpConsultas,
             this.tabHistorialClinico});
