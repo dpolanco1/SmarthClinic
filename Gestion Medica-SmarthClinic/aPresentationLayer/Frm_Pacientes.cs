@@ -10,6 +10,7 @@ using EntidadesLayer;
 using System.Windows.Forms;
 using System.Transactions;
 using BussinesLogicLayer;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace aPresentationLayer
 {
@@ -208,14 +209,24 @@ namespace aPresentationLayer
                     //Si tengo seleccionado el tabPacientes, los botones estan enable false  
                     if (tabPrincipalPacientes.SelectedTabPage == tabPacientes && txtNombres.Enabled == true)
                     {
+            
                         //Validar los datos importantes
 
-                        if (String.IsNullOrEmpty(txtNombres.Text) || String.IsNullOrEmpty(txtApellidos.Text) ||
+                        if (Controles.ValidarTelefonoError(txtDireccion) == false    /*String.IsNullOrEmpty(txtNombres.Text) || String.IsNullOrEmpty(txtApellidos.Text) ||
                             String.IsNullOrEmpty(cmbTipoIdentificacion.Text) || String.IsNullOrEmpty(txtIdentificacion.Text) ||
-                            String.IsNullOrEmpty(cmbGenero.Text))
+                            String.IsNullOrEmpty(cmbGenero.Text)*/)
                         {
-                            MessageBox.Show("Campos en negrita son obligatorios", " Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                            
+                            //MessageBox.Show("Campos en negrita son obligatorios", " Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                           // dxErrorProvider1.SetError(txtDireccion, "Este campo no puede ser en blanco");
+                          /*  dxErrorProvider1.SetErrorType(txtDireccion, ErrorType.User9);
+                            txtDireccion.ErrorText = "No puede estar en blanco";
+                            txtDireccion.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;*/
+
+                            toolTipController1.HideHint();
+
+                            toolTipController1.ShowHint("A tooltip", txtDireccion, DevExpress.Utils.ToolTipLocation.RightCenter);
+                          
+
                         }
                         else if (!Controles.ValidarCedula(txtIdentificacion) && cmbTipoIdentificacion.Text == "Cedula")
                         {
@@ -469,6 +480,8 @@ namespace aPresentationLayer
                                    }//fin del if UPDATE  */
                                 
                             }//FIN DEL TRY
+
+
                             catch (Exception)
                             {
                                 MessageBox.Show("Hubo un error para obtener los datos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -478,6 +491,7 @@ namespace aPresentationLayer
 
                         }//fin del Else ya se asignaron los valores a la entidad Paciente
 
+                       
 
                     }//Fin del If TabControl
 
@@ -491,7 +505,7 @@ namespace aPresentationLayer
                     MessageBox.Show("Hay problemas de conexión a la base de datos, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-
+     
                 scope.Complete();
             }//fin del Using Scope
         }
@@ -702,7 +716,6 @@ namespace aPresentationLayer
         {
             txtNombres.Focus();
         }
-
 
     }
 }

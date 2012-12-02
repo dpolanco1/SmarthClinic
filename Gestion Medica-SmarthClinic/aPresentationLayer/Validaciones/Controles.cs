@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using DevExpress.XtraEditors;
+using DevExpress.Utils;
 
 namespace aPresentationLayer.Validaciones
 {
@@ -381,5 +382,19 @@ namespace aPresentationLayer.Validaciones
             return flag;
         }//fin del Metodo ValidarEmail
 
+        public static bool ValidarTelefonoError(TextEdit txt)
+        {
+            bool flag;
+            if (txt.Text == string.Empty)
+            {
+                flag = false;
+            }
+            else 
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
     }
 }

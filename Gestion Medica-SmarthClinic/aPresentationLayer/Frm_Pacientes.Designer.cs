@@ -62,7 +62,7 @@
             this.btnAgregarTelefonos = new DevExpress.XtraEditors.SimpleButton();
             this.btnEliminarDireccion = new DevExpress.XtraEditors.SimpleButton();
             this.btnAgregarDireccion = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.lblPersonasdeContacto = new DevExpress.XtraEditors.LabelControl();
             this.lblTelefono = new DevExpress.XtraEditors.LabelControl();
             this.lblDirecciones = new DevExpress.XtraEditors.LabelControl();
             this.grpDatos = new DevExpress.XtraEditors.GroupControl();
@@ -72,6 +72,7 @@
             this.txtEmail = new DevExpress.XtraEditors.TextEdit();
             this.txtApellidos = new DevExpress.XtraEditors.TextEdit();
             this.txtNombres = new DevExpress.XtraEditors.TextEdit();
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.txtIDPaciente = new DevExpress.XtraEditors.TextEdit();
             this.cmbTipoPaciente = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbGenero = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -118,6 +119,7 @@
             this.grpFiltroListaPacientes = new DevExpress.XtraEditors.GroupControl();
             this.btnImportarData = new DevExpress.XtraEditors.SimpleButton();
             this.btnCargar = new DevExpress.XtraEditors.SimpleButton();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabPrincipalPacientes)).BeginInit();
             this.tabPrincipalPacientes.SuspendLayout();
             this.tabPacientes.SuspendLayout();
@@ -165,6 +167,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpFiltroListaPacientes)).BeginInit();
             this.grpFiltroListaPacientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPrincipalPacientes
@@ -203,7 +206,7 @@
             this.grpUbicaciones.Controls.Add(this.btnAgregarTelefonos);
             this.grpUbicaciones.Controls.Add(this.btnEliminarDireccion);
             this.grpUbicaciones.Controls.Add(this.btnAgregarDireccion);
-            this.grpUbicaciones.Controls.Add(this.labelControl3);
+            this.grpUbicaciones.Controls.Add(this.lblPersonasdeContacto);
             this.grpUbicaciones.Controls.Add(this.lblTelefono);
             this.grpUbicaciones.Controls.Add(this.lblDirecciones);
             this.grpUbicaciones.Dock = System.Windows.Forms.DockStyle.Top;
@@ -365,22 +368,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 535);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1106, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 537);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1106, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 495);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 497);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1106, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 495);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 497);
             // 
             // dtgDirecciones
             // 
@@ -403,7 +406,7 @@
             this.vistaDirecciones.OptionsView.ShowGroupPanel = false;
             this.vistaDirecciones.OptionsView.ShowIndicator = false;
             this.vistaDirecciones.OptionsView.ShowViewCaption = true;
-            this.vistaDirecciones.ViewCaption = "Direcciones";
+            this.vistaDirecciones.ViewCaption = "Ubicaciones";
             // 
             // txtTelefonoContacto
             // 
@@ -538,13 +541,13 @@
             this.btnAgregarDireccion.Click += new System.EventHandler(this.btnAgregarDireccion_Click);
             this.btnAgregarDireccion.Leave += new System.EventHandler(this.btnAgregarDireccion_Leave);
             // 
-            // labelControl3
+            // lblPersonasdeContacto
             // 
-            this.labelControl3.Location = new System.Drawing.Point(775, 27);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(110, 13);
-            this.labelControl3.TabIndex = 5;
-            this.labelControl3.Text = "Personas de Contacto:";
+            this.lblPersonasdeContacto.Location = new System.Drawing.Point(775, 27);
+            this.lblPersonasdeContacto.Name = "lblPersonasdeContacto";
+            this.lblPersonasdeContacto.Size = new System.Drawing.Size(110, 13);
+            this.lblPersonasdeContacto.TabIndex = 5;
+            this.lblPersonasdeContacto.Text = "Personas de Contacto:";
             // 
             // lblTelefono
             // 
@@ -667,6 +670,16 @@
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(205, 20);
             this.txtNombres.TabIndex = 1;
+            this.txtNombres.ToolTip = "Este campo es importante, debe de completarlo.";
+            this.txtNombres.ToolTipController = this.toolTipController1;
+            this.txtNombres.ToolTipTitle = "Mensaje";
+            // 
+            // toolTipController1
+            // 
+            this.toolTipController1.Appearance.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.toolTipController1.Appearance.Options.UseBackColor = true;
+            this.toolTipController1.Rounded = true;
+            this.toolTipController1.ShowBeak = true;
             // 
             // txtIDPaciente
             // 
@@ -1144,6 +1157,10 @@
             this.btnCargar.TabIndex = 0;
             this.btnCargar.Text = "Cargar Pacientes";
             // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            // 
             // Frm_Pacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1208,6 +1225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpFiltroListaPacientes)).EndInit();
             this.grpFiltroListaPacientes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1221,11 +1239,8 @@
         private DevExpress.XtraEditors.SimpleButton btnAgregarContacto;
         private DevExpress.XtraEditors.SimpleButton btnEliminarTelefonos;
         private DevExpress.XtraEditors.SimpleButton btnAgregarTelefonos;
-        private DevExpress.XtraEditors.SimpleButton btnEliminarDireccion;
-        private DevExpress.XtraEditors.SimpleButton btnAgregarDireccion;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl lblPersonasdeContacto;
         private DevExpress.XtraEditors.LabelControl lblTelefono;
-        private DevExpress.XtraEditors.LabelControl lblDirecciones;
         private DevExpress.XtraEditors.GroupControl grpMasDatos;
         private DevExpress.XtraTab.XtraTabControl TabMasInfo;
         private DevExpress.XtraTab.XtraTabPage tabHistorialClinico;
@@ -1277,7 +1292,6 @@
         private DevExpress.XtraEditors.TextEdit txtApellidos;
         private DevExpress.XtraEditors.TextEdit txtNombres;
         private DevExpress.XtraEditors.TextEdit txtIDPaciente;
-        private DevExpress.XtraEditors.TextEdit txtUbicacion;
         private DevExpress.XtraEditors.TextEdit txtContacto;
         private DevExpress.XtraGrid.GridControl dtgContactos;
         private DevExpress.XtraGrid.Views.Grid.GridView VistaContactos;
@@ -1303,6 +1317,12 @@
         private DevExpress.XtraGrid.Views.Grid.GridView vistaTelefonos;
         private DevExpress.XtraGrid.GridControl dtgDirecciones;
         private DevExpress.XtraGrid.Views.Grid.GridView vistaDirecciones;
+        private DevExpress.XtraEditors.TextEdit txtUbicacion;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarDireccion;
+        private DevExpress.XtraEditors.SimpleButton btnAgregarDireccion;
+        private DevExpress.XtraEditors.LabelControl lblDirecciones;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.Utils.ToolTipController toolTipController1;
 
     }
 }
