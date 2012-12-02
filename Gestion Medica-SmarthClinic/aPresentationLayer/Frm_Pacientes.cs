@@ -212,30 +212,24 @@ namespace aPresentationLayer
             
                         //Validar los datos importantes
 
-                        if (Controles.ValidarTelefonoError(txtDireccion) == false    /*String.IsNullOrEmpty(txtNombres.Text) || String.IsNullOrEmpty(txtApellidos.Text) ||
-                            String.IsNullOrEmpty(cmbTipoIdentificacion.Text) || String.IsNullOrEmpty(txtIdentificacion.Text) ||
-                            String.IsNullOrEmpty(cmbGenero.Text)*/)
+                        if (Controles.ValidarCampoVacio(txtNombres, "El campo"+" Nombre"+" debe ser completado", toolTipController1) ||
+                            Controles.ValidarCampoVacio(txtApellidos, "El campo"+" Apellido"+" debe ser completado", toolTipController1) ||
+                            Controles.ValidarCampoVacio(cmbTipoIdentificacion, "El campo"+" Tipo de Identificación"+" debe ser completado", toolTipController1) ||
+                            Controles.ValidarCampoVacio(txtIdentificacion, "El campo"+" Identificación"+" debe ser completado", toolTipController1) ||
+                            Controles.ValidarCampoVacio(cmbGenero, "El campo"+" Genero"+" debe ser completado", toolTipController1) ||
+                            Controles.ValidarCampoVacio(cmbTipoPaciente, "El campo"+" Tipo de Paciente"+" debe ser completado", toolTipController1) 
+                            ) 
                         {
-                            //MessageBox.Show("Campos en negrita son obligatorios", " Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                           // dxErrorProvider1.SetError(txtDireccion, "Este campo no puede ser en blanco");
-                          /*  dxErrorProvider1.SetErrorType(txtDireccion, ErrorType.User9);
-                            txtDireccion.ErrorText = "No puede estar en blanco";
-                            txtDireccion.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;*/
-
-                            toolTipController1.HideHint();
-
-                            toolTipController1.ShowHint("A tooltip", txtDireccion, DevExpress.Utils.ToolTipLocation.RightCenter);
                           
-
                         }
-                        else if (!Controles.ValidarCedula(txtIdentificacion) && cmbTipoIdentificacion.Text == "Cedula")
+                        else if (!Controles.ValidarCedula(txtIdentificacion) && cmbTipoIdentificacion.Text == "Cédula")
                         {
-                            MessageBox.Show("La cedula proporcionada no es valida", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            Controles.MostrarMensajeCampoVacio(txtIdentificacion, "La cédula suministrada no es válida", toolTipController1);
                             txtIdentificacion.Focus();
                         }
                         else if (!Controles.ValidarEmail(txtEmail) && txtEmail.Text != string.Empty)
                         {
-                            MessageBox.Show("El email no es valido, favor verifique", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            Controles.MostrarMensajeCampoVacio(txtEmail, "El email suministrado no es valido", toolTipController1);
                             txtEmail.Focus();
 
                         }
@@ -243,253 +237,240 @@ namespace aPresentationLayer
 
                         else
                         {
-                            try
-                            {
-                              
-                                //-----------------------------------------------------INSERT--------------------------------------------------------------------//
+                             DialogResult Respuesta = MessageBox.Show("Desea realmente guardar el registro?", "Smart Clinic", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                                if (NUEVO == true)
-                                {
+                             if (Respuesta == DialogResult.Yes)
+                             {
+                                 try
+                                 {
+                                     //Valores Entidad Paciente
+                                     txtIDPaciente.Text = Convert.ToString(Bl_Paciente.SearchIDPaciente());//para actualizar
+                                     paciente.IDPaciente = txtIDPaciente.Text.Trim();
+                                     paciente.Nombres = txtNombres.Text;
+                                     paciente.Apellidos = txtApellidos.Text;
+                                     paciente.IDTipoIdentifacion = cmbTipoIdentificacion.SelectedIndex;
+                                     paciente.Identificacion = txtIdentificacion.Text;
+                                     paciente.Edad = txtEdad.Text.Trim();
+                                     paciente.Genero = cmbGenero.Text;
+                                     paciente.EstadoCivil = cmbEstadoCivil.Text.Trim();
+                                     paciente.TipoSangre = cmbTipoSangre.Text.Trim();
+                                     paciente.TipoPaciente = cmbTipoPaciente.SelectedIndex;
+                                     paciente.Email = txtEmail.Text;
+                                     paciente.Direccion = txtDireccion.Text;
+                                     paciente.Peso = txtPeso.Value;
+                                     paciente.Altura = txtAltura.Value;
 
-                                //Valores Entidad Direcciones
-                                    if (vistaDirecciones.RowCount > 0)
-                                    {
-                                        for (int i = 0; i < vistaDirecciones.RowCount; i++)
-                                        {
+                                     //-----------------------------------------------------INSERT--------------------------------------------------------------------//
 
-                                            //paso el valor de la columna a la entidad al parecer es ese.
-                                            direcciones.Direccion = Convert.ToString(vistaDirecciones.GetRowCellValue(i, "Direcciones")).Trim();
+                                     if (NUEVO == true)
+                                     {
 
+                                         //Valores Entidad Direcciones
+                                         if (vistaDirecciones.RowCount > 0)
+                                         {
+                                             for (int i = 0; i < vistaDirecciones.RowCount; i++)
+                                             {
 
-                                            if (!Bl_Direcciones.Insert(direcciones))
-                                            {
-                                                seGuardoDirecciones = false;
-                                                MessageBox.Show("Hay problemas para insertar las direcciones del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            }
+                                                 //paso el valor de la columna a la entidad al parecer es ese.
+                                                 direcciones.Direccion = Convert.ToString(vistaDirecciones.GetRowCellValue(i, "Direcciones")).Trim();
 
-                                        }//fin del for dtgDireccionn
 
-                                    }//fin insert direcciones
+                                                 if (!Bl_Direcciones.Insert(direcciones))
+                                                 {
+                                                     seGuardoDirecciones = false;
+                                                     MessageBox.Show("Hay problemas para insertar las direcciones del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                 }
 
-                                    if (vistaTelefonos.RowCount > 0 && seGuardoDirecciones == true)
-                                       {
-                                           for (int i = 0; i < vistaTelefonos.RowCount; i++)
-                                           {
+                                             }//fin del for dtgDireccionn
 
-                                               telefonos.Telefono = Convert.ToString(vistaTelefonos.GetRowCellValue(i, "Teléfonos")).Trim();
+                                         }//fin insert direcciones
 
-                                               if (!Bl_Telefono.Insert(telefonos))
-                                               {
-                                                   seGuardoTelefonos = false;
-                                                   MessageBox.Show("Hay problemas para insertar los telefonos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                               }
+                                         if (vistaTelefonos.RowCount > 0 && seGuardoDirecciones == true)
+                                         {
+                                             for (int i = 0; i < vistaTelefonos.RowCount; i++)
+                                             {
 
-                                           }//fin del for dtgTelefonos
+                                                 telefonos.Telefono = Convert.ToString(vistaTelefonos.GetRowCellValue(i, "Teléfonos")).Trim();
 
+                                                 if (!Bl_Telefono.Insert(telefonos))
+                                                 {
+                                                     seGuardoTelefonos = false;
+                                                     MessageBox.Show("Hay problemas para insertar los telefonos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                 }
 
-                                       }//fin insert Telefonos
+                                             }//fin del for dtgTelefonos
 
-                                    if (VistaContactos.RowCount > 0 && seGuardoTelefonos == true)
-                                    {
-                                        for (int i = 0; i < VistaContactos.RowCount ; i++)
-                                        {
 
-                                            contacto.Contacto = Convert.ToString(VistaContactos.GetRowCellValue(i, "Nombre de Contacto")).Trim();
-                                            contacto.Telefono = Convert.ToString(VistaContactos.GetRowCellValue(i, "Teléfono")).Trim();
+                                         }//fin insert Telefonos
 
-                                            if (!Bl_Contacto.Insert(contacto))
-                                            {
-                                                seGuardoContactos = false;
-                                                MessageBox.Show("Hay problemas para insertar los contactos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            }
+                                         if (VistaContactos.RowCount > 0 && seGuardoTelefonos == true)
+                                         {
+                                             for (int i = 0; i < VistaContactos.RowCount; i++)
+                                             {
 
+                                                 contacto.Contacto = Convert.ToString(VistaContactos.GetRowCellValue(i, "Nombre de Contacto")).Trim();
+                                                 contacto.Telefono = Convert.ToString(VistaContactos.GetRowCellValue(i, "Teléfono")).Trim();
 
-                                        }//fin del for dtgContactos
+                                                 if (!Bl_Contacto.Insert(contacto))
+                                                 {
+                                                     seGuardoContactos = false;
+                                                     MessageBox.Show("Hay problemas para insertar los contactos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                 }
 
-                                    }//fin insert Contactos
 
+                                             }//fin del for dtgContactos
 
+                                         }//fin insert Contactos
 
 
-                                       //Valores Entidad Paciente
-                                       txtIDPaciente.Text = Convert.ToString(Bl_Paciente.SearchIDPaciente());//para actualizar
-                                       paciente.IDPaciente = txtIDPaciente.Text.Trim();
-                                       paciente.Nombres = txtNombres.Text;
-                                       paciente.Apellidos = txtApellidos.Text;
-                                       paciente.IDTipoIdentifacion = cmbTipoIdentificacion.SelectedIndex;
-                                       paciente.Identificacion = txtIdentificacion.Text;
-                                       paciente.Edad = txtEdad.Text.Trim();
-                                       paciente.Genero = cmbGenero.Text;
-                                       paciente.EstadoCivil = cmbEstadoCivil.Text.Trim();
-                                       paciente.TipoSangre = cmbTipoSangre.Text.Trim();
-                                       paciente.TipoPaciente = cmbTipoPaciente.SelectedIndex;
-                                       paciente.Email = txtEmail.Text;
-                                       paciente.Direccion = txtDireccion.Text;
-                                       paciente.Peso = txtPeso.Value;
-                                       paciente.Altura = txtAltura.Value;
+                                         if (seGuardoDirecciones == true && seGuardoTelefonos == true && seGuardoContactos == true)
+                                         {
 
+                                             if (Bl_Paciente.Insert(paciente))
+                                             {
+                                                 txtIDPaciente.Text = Bl_Paciente.SearchIDPaciente().ToString();
+                                                 //Si todo paso bien
 
-                                       Bl_Paciente.Insert(paciente);
+                                                 NUEVO = false;
 
-                                       MessageBox.Show("El paciente se insetó correctamente ", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                 //Deshabilito los Txt
+                                                 Controles.DeshabilitarText(frm_pacientes);
 
+                                                 //Deshabilito los Datagried
+                                                 Controles.DeshabilitarDGV(frm_pacientes);
 
+                                                 //Si se inserto el paciente bien 
+                                                 seGuardoDirecciones = false;
+                                                 seGuardoTelefonos = false;
+                                                 seGuardoTelefonos = false;
 
-                                    /*
+                                                 MessageBox.Show("Los datos del paciente fueron insertados correctamente", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                     
+                                             }
+                                             else
+                                             {
 
-                                       if (seGuardoDirecciones == true && seGuardoTelefonos == true && seGuardoContactos == true)
-                                       {
-                                           if (Bl_Paciente.Insert(paciente))
-                                           {
-                                               txtIDPaciente.Text = Bl_Paciente.SearchIDPaciente().ToString();
-                                               //Si todo paso bien
+                                                 MessageBox.Show("Hay problemas para insertar los datos en general del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                                               MessageBox.Show("Los datos del paciente fueron insertados correctamente", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                             }
 
-                                               NUEVO = false;
 
-                                               //Deshabilito los Txt
-                                               Bl_AdministrarControles.DeshabilitarText(frm_pacientes);
+                                         }
+                                     }//fin del NUEVO
 
-                                               //Deshabilito los Datagried
-                                               Bl_AdministrarControles.DeshabilitarDGV(frm_pacientes);
+                                            //-----------------------------------------------------UPDATE--------------------------------------------------------------------//
 
-                                               //Si se inserto el paciente bien 
-                                               seGuardoDirecciones = false;
-                                               seGuardoTelefonos = false;
-                                               seGuardoTelefonos = false;
-                                           }
-                                           else
-                                               MessageBox.Show("Hay problemas para insertar los datos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            //si existe un problema entonces muestro un mensaje de aviso al usuario.
+                                     else if (EDITANDO == true)
+                                     {
 
+                                         //Valores Entidad Direcciones
+                                         if (vistaDirecciones.RowCount > 0)
+                                         {
+                                             if (Bl_Direcciones.Delete(Convert.ToInt32(txtIDPaciente.Text.Trim())))
+                                             {
 
+                                                 for (int i = 0; i < vistaDirecciones.RowCount; i++)
+                                                 {
+                                                     direcciones.IDPaciente = txtIDPaciente.Text.Trim();
+                                                     direcciones.Direccion = Convert.ToString(vistaDirecciones.GetRowCellValue(i, "Direcciones")).Trim();
 
-                                       }//fin del insert Bl_Contacto.Inserts
+                                                     if (!Bl_Direcciones.Update(direcciones))
+                                                     {
+                                                         seGuardoDirecciones = false;
+                                                         MessageBox.Show("Hay problemas para actualizar las direcciones del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                     }
 
-                                       else
-                                       {
-                                           MessageBox.Show("Hay problemas para insertar los datos en general del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                 }
 
-                                       }
+                                             }
 
+                                         }
 
+                                         if (vistaTelefonos.RowCount > 0 && seGuardoDirecciones == true)
+                                         {
+                                             if (Bl_Telefono.Delete(Convert.ToInt32(txtIDPaciente.Text.Trim())))
+                                             {
+                                                 for (int i = 0; i < vistaTelefonos.RowCount; i++)
+                                                 {
+                                                     telefonos.IDPaciente = txtIDPaciente.Text.Trim();
+                                                     telefonos.Telefono = Convert.ToString(vistaTelefonos.GetRowCellValue(i, "Teléfonos")).Trim();
 
-                                   }//fin de todos los insert con Nuevo
 
-                                       //-----------------------------------------------------UPDATE--------------------------------------------------------------------//
+                                                     if (!Bl_Telefono.Update(telefonos))
+                                                     {
+                                                         seGuardoTelefonos = false;
+                                                         MessageBox.Show("Hay problemas para actualizar los telefonos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                                       //si existe un problema entonces muestro un mensaje de aviso al usuario.
-                                   else if (EDITANDO == true)
-                                   {
+                                                     }
 
-                                       //Valores Entidad Direcciones
-                                       if (dtgDirecciones.Rows.Count > 1)
-                                       {
-                                           if (Bl_Direcciones.Delete(Convert.ToInt32(txtIDPaciente.Text.Trim())))
-                                           {
+                                                 }
 
-                                               for (int i = 0; i < dtgDirecciones.RowCount - 1; i++)
-                                               {
-                                                   direcciones.IDPaciente = txtIDPaciente.Text.Trim();
-                                                   direcciones.Direccion = Convert.ToString(dtgDirecciones.Rows[i].Cells[0].Value);
+                                             }
 
-                                                   if (!Bl_Direcciones.Update(direcciones))
-                                                   {
-                                                       seGuardoDirecciones = false;
-                                                       MessageBox.Show("Hay problemas para actualizar las direcciones del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                   }
+                                         }
 
-                                               }
+                                         if (VistaContactos.RowCount > 0 && seGuardoTelefonos == true)
+                                         {
 
-                                           }
+                                             if (Bl_Contacto.Delete(Convert.ToInt32(txtIDPaciente.Text.Trim())))
+                                             {
+                                                 for (int i = 0; i < VistaContactos.RowCount; i++)
+                                                 {
+                                                     contacto.IDContacto = txtIDPaciente.Text.Trim();
+                                                     contacto.Contacto = Convert.ToString(VistaContactos.GetRowCellValue(i, "Nombre de Contacto")).Trim();
+                                                     contacto.Telefono = Convert.ToString(VistaContactos.GetRowCellValue(i, "Teléfono")).Trim();
 
-                                       }
+                                                     if (!Bl_Contacto.Update(contacto))
+                                                     {
+                                                         seGuardoContactos = false;
+                                                         MessageBox.Show("Hay problemas para actualizar los contactos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                                       if (dtgTelefonos.Rows.Count > 1 && seGuardoDirecciones == true)
-                                       {
-                                           if (Bl_Telefono.Delete(Convert.ToInt32(txtIDPaciente.Text.Trim())))
-                                           {
-                                               for (int i = 0; i < dtgTelefonos.RowCount - 1; i++)
-                                               {
-                                                   telefonos.IDPaciente = txtIDPaciente.Text.Trim();
-                                                   telefonos.Telefono = Convert.ToString(dtgTelefonos.Rows[i].Cells[0].Value);
+                                                     }
 
-                                                   if (!Bl_Telefono.Update(telefonos))
-                                                   {
-                                                       seGuardoTelefonos = false;
-                                                       MessageBox.Show("Hay problemas para actualizar los telefonos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                 }//fin del for dtgContactos
 
-                                                   }
+                                             }
+                                         }
 
-                                               }
+                                         if (seGuardoDirecciones == true && seGuardoTelefonos == true && seGuardoContactos == true)
+                                         {
+                                             if (Bl_Paciente.Update(paciente))
+                                             {
 
-                                           }
+                                                 //Deshabilito los Txt
+                                                 Controles.DeshabilitarText(frm_pacientes);
 
-                                       }
+                                                 //Deshabilito los Datagried
+                                                 Controles.DeshabilitarDGV(frm_pacientes);
 
-                                       if (dtgContactos.Rows.Count > 1 && seGuardoTelefonos == true)
-                                       {
+                                                 NUEVO = true;
+                                                 EDITANDO = false;
 
-                                           if (Bl_Contacto.Delete(Convert.ToInt32(txtIDPaciente.Text.Trim())))
-                                           {
-                                               for (int i = 0; i < dtgContactos.RowCount - 1; i++)
-                                               {
-                                                   contacto.IDContacto = txtIDPaciente.Text.Trim();
-                                                   contacto.Contacto = Convert.ToString(dtgContactos.Rows[i].Cells[0].Value);
-                                                   contacto.Telefono = Convert.ToString(dtgContactos.Rows[i].Cells[1].Value);
+                                                 //si todo anduvo bien
+                                                 seGuardoDirecciones = false;
+                                                 seGuardoTelefonos = false;
+                                                 seGuardoContactos = false;
 
-                                                   if (!Bl_Contacto.Update(contacto))
-                                                   {
-                                                       seGuardoContactos = false;
-                                                       MessageBox.Show("Hay problemas para actualizar los contactos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                 MessageBox.Show("La edición se realizó correctamente", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                             }
 
-                                                   }
+                                         }
 
-                                               }//fin del for dtgContactos
+                                     }//fin del if UPDATE  
 
-                                           }
-                                       }
+                                 }//FIN DEL TRY
 
-                                       if (seGuardoDirecciones == true && seGuardoTelefonos == true && seGuardoContactos == true)
-                                       {
-                                           if (Bl_Paciente.Update(paciente))
-                                           {
 
-                                               MessageBox.Show("La edición se realizó correctamente", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                 catch (Exception)
+                                 {
+                                     MessageBox.Show("Hubo un error para obtener los datos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                                               //Deshabilito los Txt
-                                               Bl_AdministrarControles.DeshabilitarText(frm_pacientes);
+                                 }
+                             }
 
-                                               //Deshabilito los Datagried
-                                               Bl_AdministrarControles.DeshabilitarDGV(frm_pacientes);
 
-                                               NUEVO = true;
-                                               EDITANDO = false;
-                                               CONSULTANDO = true;
-
-                                               //si todo anduvo bien
-                                               seGuardoDirecciones = false;
-                                               seGuardoTelefonos = false;
-                                               seGuardoContactos = false;
-                                           }
-
-                                       }*/
-
-                                   }//fin del if UPDATE  */
-                                
-                            }//FIN DEL TRY
-
-
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Hubo un error para obtener los datos del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                            }
-
-
-                        }//fin del Else ya se asignaron los valores a la entidad Paciente
+                        }//desea guardar??
 
                        
 

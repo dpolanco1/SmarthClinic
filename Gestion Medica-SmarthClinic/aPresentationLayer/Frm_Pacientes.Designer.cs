@@ -119,7 +119,6 @@
             this.grpFiltroListaPacientes = new DevExpress.XtraEditors.GroupControl();
             this.btnImportarData = new DevExpress.XtraEditors.SimpleButton();
             this.btnCargar = new DevExpress.XtraEditors.SimpleButton();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabPrincipalPacientes)).BeginInit();
             this.tabPrincipalPacientes.SuspendLayout();
             this.tabPacientes.SuspendLayout();
@@ -167,7 +166,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpFiltroListaPacientes)).BeginInit();
             this.grpFiltroListaPacientes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPrincipalPacientes
@@ -1157,10 +1155,6 @@
             this.btnCargar.TabIndex = 0;
             this.btnCargar.Text = "Cargar Pacientes";
             // 
-            // dxErrorProvider1
-            // 
-            this.dxErrorProvider1.ContainerControl = this;
-            // 
             // Frm_Pacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1225,7 +1219,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpFiltroListaPacientes)).EndInit();
             this.grpFiltroListaPacientes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1321,7 +1314,6 @@
         private DevExpress.XtraEditors.SimpleButton btnEliminarDireccion;
         private DevExpress.XtraEditors.SimpleButton btnAgregarDireccion;
         private DevExpress.XtraEditors.LabelControl lblDirecciones;
-        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
         private DevExpress.Utils.ToolTipController toolTipController1;
 
     }

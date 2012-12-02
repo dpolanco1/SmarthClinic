@@ -382,19 +382,58 @@ namespace aPresentationLayer.Validaciones
             return flag;
         }//fin del Metodo ValidarEmail
 
-        public static bool ValidarTelefonoError(TextEdit txt)
+        public static bool ValidarCampoVacio(TextEdit txt,string mensaje,ToolTipController tooltip)
         {
             bool flag;
-            if (txt.Text == string.Empty)
+
+            if (string.IsNullOrEmpty(txt.Text))
             {
-                flag = false;
+                tooltip.HideHint();
+                tooltip.ShowHint(mensaje, txt, DevExpress.Utils.ToolTipLocation.LeftTop);
+                flag = true;
+
             }
             else 
             {
-                flag = true;
+                flag = false;
+           
             }
 
             return flag;
+
+        }
+
+
+        public static void MostrarMensajeCampoVacio(TextEdit txt, string mensaje, ToolTipController tooltip)
+        {
+                tooltip.HideHint();
+                tooltip.ShowHint(mensaje, txt, DevExpress.Utils.ToolTipLocation.LeftTop);
+        }
+
+
+
+        public static bool ValidarCampoVacio(ComboBoxEdit cmb, string mensaje, ToolTipController tooltip)
+        {
+            bool flag;
+
+            if (string.IsNullOrEmpty(cmb.Text))
+            {
+                tooltip.HideHint();
+                tooltip.ShowHint(mensaje, cmb, DevExpress.Utils.ToolTipLocation.LeftTop);
+                flag = true;
+
+            }
+            else
+            {
+                flag = false;
+
+            }
+
+            return flag;
+
         }
     }
+
+
+
 }
