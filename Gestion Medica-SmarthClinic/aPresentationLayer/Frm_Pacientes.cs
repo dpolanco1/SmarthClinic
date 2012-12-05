@@ -215,7 +215,6 @@ namespace aPresentationLayer
                         if (Controles.ValidarCampoVacio(txtNombres, "El campo"+" Nombre"+" debe ser completado", toolTipController1) ||
                             Controles.ValidarCampoVacio(txtApellidos, "El campo"+" Apellido"+" debe ser completado", toolTipController1) ||
                             Controles.ValidarCampoVacio(cmbTipoIdentificacion, "El campo"+" Tipo de Identificación"+" debe ser completado", toolTipController1) ||
-                            Controles.ValidarCampoVacio(txtIdentificacion, "El campo"+" Identificación"+" debe ser completado", toolTipController1) ||
                             Controles.ValidarCampoVacio(cmbGenero, "El campo"+" Genero"+" debe ser completado", toolTipController1) ||
                             Controles.ValidarCampoVacio(cmbTipoPaciente, "El campo"+" Tipo de Paciente"+" debe ser completado", toolTipController1) 
                             ) 
@@ -678,13 +677,13 @@ namespace aPresentationLayer
         private void cmbTipoIdentificacion_SelectedValueChanged(object sender, EventArgs e)
         {
 
-            if (cmbTipoIdentificacion.Text == "NA(Menor Edad)")
+            if (cmbTipoIdentificacion.Text == "Ninguna")
             {
                 txtIdentificacion.Enabled = false;
             }
             else if (cmbTipoIdentificacion.Text == "Cédula")
             {
-                txtIdentificacion.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
+                txtIdentificacion.Properties.Mask.EditMask = "\\d\\d\\d-\\d\\d\\d\\d\\d\\d\\d-\\d";
                 txtIdentificacion.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
                 txtIdentificacion.Enabled = true;
                 txtIdentificacion.Focus();

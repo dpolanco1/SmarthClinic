@@ -664,9 +664,6 @@
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(205, 20);
             this.txtNombres.TabIndex = 1;
-            this.txtNombres.ToolTip = "Este campo es importante, debe de completarlo.";
-            this.txtNombres.ToolTipController = this.toolTipController1;
-            this.txtNombres.ToolTipTitle = "Mensaje";
             // 
             // toolTipController1
             // 
@@ -798,10 +795,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown)});
             this.cmbTipoIdentificacion.Properties.Items.AddRange(new object[] {
             "",
+            "Ninguna",
             "Cédula",
             "RNC",
             "Pasaporte",
-            "N/A"});
+            "Licencia de Conducir"});
             this.cmbTipoIdentificacion.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTipoIdentificacion.Size = new System.Drawing.Size(127, 20);
             this.cmbTipoIdentificacion.TabIndex = 3;
