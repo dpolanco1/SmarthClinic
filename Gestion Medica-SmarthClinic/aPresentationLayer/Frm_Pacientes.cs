@@ -127,7 +127,7 @@ namespace aPresentationLayer
                     Controles.DeshabilitarDGV(frm_pacientes);
 
                     //Limpio los Txt
-                  //  Controles.VaciarText(frm_pacientes);
+                    Controles.VaciarText(frm_pacientes);
 
                     //Limpio los DatagriedView
                     Controles.VaciarDGV(frm_pacientes);
@@ -496,7 +496,7 @@ namespace aPresentationLayer
             if (txtUbicacion.Text.Length != 0 && txtUbicacion.Text != string.Empty
                && txtUbicacion.Text != "Agregar una direccion para el paciente" && txtDireccion.Enabled == true)
             {
-
+               
                 vistaDirecciones.AddNewRow();
                 vistaDirecciones.SetRowCellValue(vistaDirecciones.FocusedRowHandle, "Direcciones", txtUbicacion.Text.Trim());
                 vistaDirecciones.UpdateCurrentRow();
@@ -558,11 +558,6 @@ namespace aPresentationLayer
                 txtUbicacion.Text = "Agregar una direccion para el paciente";
                 txtUbicacion.ForeColor = Color.DarkGray;
             }
-            else if (txtUbicacion.Text != string.Empty && this.ActiveControl.Name != this.btnAgregarDireccion.Name)
-            {
-                txtUbicacion.Text = "Agregar una direccion para el paciente";
-                txtUbicacion.ForeColor = Color.DarkGray;
-            }
         }
 
         private void Frm_Pacientes_FormClosed(object sender, FormClosedEventArgs e)
@@ -571,14 +566,7 @@ namespace aPresentationLayer
             EDITANDO = false;
         }
 
-        private void btnAgregarDireccion_Leave(object sender, EventArgs e)
-        {
-              if (txtUbicacion.Text != string.Empty)
-            {
-                txtUbicacion.Text = "Agregar una direccion para el paciente";
-                txtUbicacion.ForeColor = Color.DarkGray;
-            }
-        }
+   
 
         private void btnAgregarTelefonos_Click(object sender, EventArgs e)
         {
@@ -599,34 +587,8 @@ namespace aPresentationLayer
             txtTelefonos.ForeColor = Color.Black;
         }
 
-        private void txtTelefonos_Leave(object sender, EventArgs e)
-        {
-
-            if (txtTelefonos.Text == string.Empty)
-            {
-                txtTelefonos.Text = "Agregar Télefono";
-                txtTelefonos.ForeColor = Color.DarkGray;
-            }
-            else if (txtTelefonos.Text != string.Empty && this.ActiveControl.Name != this.btnAgregarTelefonos.Name)
-            {
-                txtTelefonos.Text = "Agregar Télefono";
-                txtTelefonos.ForeColor = Color.DarkGray;
-            }
-        }
-
-        private void btnAgregarTelefonos_Leave(object sender, EventArgs e)
-        {
-            if (txtTelefonos.Text != string.Empty)
-            {
-                txtTelefonos.Text = "Agregar Télefono";
-                txtTelefonos.ForeColor = Color.DarkGray;
-            }
-            else 
-            {
-                txtTelefonos.Text = "Agregar Télefono";
-                txtTelefonos.ForeColor = Color.DarkGray;
-            }
-        }
+   
+    
 
         private void btnEliminarDireccion_Click(object sender, EventArgs e)
         {
@@ -679,6 +641,22 @@ namespace aPresentationLayer
             txtTelefonoContacto.ForeColor = Color.Black;
         }
 
+     
+        private void btnEliminarContacto_Leave(object sender, EventArgs e)
+        {
+            txtNombres.Focus();
+        }
+
+        private void txtTelefonos_Leave(object sender, EventArgs e)
+        {
+            if (txtTelefonos.Text == string.Empty)
+            {
+                txtTelefonos.Text = "Agregar Teléfono";
+                txtTelefonos.ForeColor = Color.DarkGray;
+            }
+           
+        }
+
         private void txtContacto_Leave(object sender, EventArgs e)
         {
             if (txtContacto.Text == string.Empty)
@@ -686,16 +664,38 @@ namespace aPresentationLayer
                 txtContacto.Text = "Agregar Nombre de Contacto";
                 txtContacto.ForeColor = Color.DarkGray;
             }
-            else if (txtContacto.Text != string.Empty &&   this.ActiveControl.Name != this.txtTelefonoContacto.Name)
+        }
+
+        private void txtTelefonoContacto_Leave(object sender, EventArgs e)
+        {
+            if (txtTelefonoContacto.Text == string.Empty)
             {
-                txtContacto.Text = "Agregar Nombre de Contacto";
-                txtContacto.ForeColor = Color.DarkGray;
+                txtTelefonoContacto.Text = "Agregar Teléfono";
+                txtTelefonoContacto.ForeColor = Color.DarkGray;
             }
         }
 
-        private void btnEliminarContacto_Leave(object sender, EventArgs e)
+        private void cmbTipoIdentificacion_SelectedValueChanged(object sender, EventArgs e)
         {
-            txtNombres.Focus();
+
+            if (cmbTipoIdentificacion.Text == "NA(Menor Edad)")
+            {
+                txtIdentificacion.Enabled = false;
+            }
+            else if (cmbTipoIdentificacion.Text == "Cédula")
+            {
+                txtIdentificacion.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d-\\d\\d\\d\\d";
+                txtIdentificacion.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
+                txtIdentificacion.Enabled = true;
+                txtIdentificacion.Focus();
+
+            }
+            else
+            {
+                txtIdentificacion.Properties.Mask.EditMask = null;
+                txtIdentificacion.Enabled = true;
+                txtIdentificacion.Focus();
+            }
         }
 
     }

@@ -117,8 +117,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grpFiltroListaPacientes = new DevExpress.XtraEditors.GroupControl();
-            this.btnImportarData = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCargar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabPrincipalPacientes)).BeginInit();
             this.tabPrincipalPacientes.SuspendLayout();
             this.tabPacientes.SuspendLayout();
@@ -165,7 +163,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpFiltroListaPacientes)).BeginInit();
-            this.grpFiltroListaPacientes.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPrincipalPacientes
@@ -417,6 +414,7 @@
             this.txtTelefonoContacto.Size = new System.Drawing.Size(114, 20);
             this.txtTelefonoContacto.TabIndex = 21;
             this.txtTelefonoContacto.Enter += new System.EventHandler(this.txtTelefonoContacto_Enter);
+            this.txtTelefonoContacto.Leave += new System.EventHandler(this.txtTelefonoContacto_Leave);
             // 
             // txtTelefonos
             // 
@@ -516,7 +514,6 @@
             this.btnAgregarTelefonos.Size = new System.Drawing.Size(20, 21);
             this.btnAgregarTelefonos.TabIndex = 18;
             this.btnAgregarTelefonos.Click += new System.EventHandler(this.btnAgregarTelefonos_Click);
-            this.btnAgregarTelefonos.Leave += new System.EventHandler(this.btnAgregarTelefonos_Leave);
             // 
             // btnEliminarDireccion
             // 
@@ -537,7 +534,6 @@
             this.btnAgregarDireccion.Size = new System.Drawing.Size(20, 21);
             this.btnAgregarDireccion.TabIndex = 15;
             this.btnAgregarDireccion.Click += new System.EventHandler(this.btnAgregarDireccion_Click);
-            this.btnAgregarDireccion.Leave += new System.EventHandler(this.btnAgregarDireccion_Leave);
             // 
             // lblPersonasdeContacto
             // 
@@ -809,6 +805,7 @@
             this.cmbTipoIdentificacion.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbTipoIdentificacion.Size = new System.Drawing.Size(127, 20);
             this.cmbTipoIdentificacion.TabIndex = 3;
+            this.cmbTipoIdentificacion.SelectedValueChanged += new System.EventHandler(this.cmbTipoIdentificacion_SelectedValueChanged);
             // 
             // labelControl4
             // 
@@ -1111,11 +1108,11 @@
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 56);
+            this.gridControl1.Location = new System.Drawing.Point(0, 25);
             this.gridControl1.MainView = this.gridView5;
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1100, 582);
+            this.gridControl1.Size = new System.Drawing.Size(1100, 613);
             this.gridControl1.TabIndex = 88;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -1130,30 +1127,12 @@
             // 
             // grpFiltroListaPacientes
             // 
-            this.grpFiltroListaPacientes.Controls.Add(this.btnImportarData);
-            this.grpFiltroListaPacientes.Controls.Add(this.btnCargar);
             this.grpFiltroListaPacientes.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpFiltroListaPacientes.Location = new System.Drawing.Point(0, 0);
             this.grpFiltroListaPacientes.Name = "grpFiltroListaPacientes";
-            this.grpFiltroListaPacientes.Size = new System.Drawing.Size(1100, 56);
+            this.grpFiltroListaPacientes.Size = new System.Drawing.Size(1100, 25);
             this.grpFiltroListaPacientes.TabIndex = 1;
             this.grpFiltroListaPacientes.Text = "Lista de Pacienes";
-            // 
-            // btnImportarData
-            // 
-            this.btnImportarData.Location = new System.Drawing.Point(110, 27);
-            this.btnImportarData.Name = "btnImportarData";
-            this.btnImportarData.Size = new System.Drawing.Size(99, 23);
-            this.btnImportarData.TabIndex = 1;
-            this.btnImportarData.Text = "Importar";
-            // 
-            // btnCargar
-            // 
-            this.btnCargar.Location = new System.Drawing.Point(5, 27);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(99, 23);
-            this.btnCargar.TabIndex = 0;
-            this.btnCargar.Text = "Cargar Pacientes";
             // 
             // Frm_Pacientes
             // 
@@ -1218,7 +1197,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpFiltroListaPacientes)).EndInit();
-            this.grpFiltroListaPacientes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1240,7 +1218,6 @@
         private DevExpress.XtraTab.XtraTabPage tbpConsultas;
         private DevExpress.XtraTab.XtraTabPage tabListaPacientes;
         private DevExpress.XtraEditors.GroupControl grpFiltroListaPacientes;
-        private DevExpress.XtraEditors.SimpleButton btnCargar;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem btnNuevo;
@@ -1294,7 +1271,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn dtgColumProfesional;
         private DevExpress.XtraGrid.Columns.GridColumn dtgColumMotivo;
         private DevExpress.XtraEditors.TextEdit txtDireccion;
-        private DevExpress.XtraEditors.SimpleButton btnImportarData;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraEditors.TextEdit txtTelefonoContacto;
