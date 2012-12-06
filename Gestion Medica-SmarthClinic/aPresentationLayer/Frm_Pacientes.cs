@@ -72,7 +72,7 @@ namespace aPresentationLayer
                 txtNombres.Focus();
 
                 //Agrego una descripcion para el control
-                txtUbicacion.Text = "Agregar una Dirección para el paciente";
+                txtUbicacion.Text = "Agregar una dirección para el paciente";
                 txtUbicacion.ForeColor = Color.DarkGray;
                 txtContacto.Text = "Agregar Nombre de Contacto";
                 txtContacto.ForeColor = Color.DarkGray;
@@ -85,6 +85,7 @@ namespace aPresentationLayer
 
                 dtgListaPacientes.Enabled = true;
 
+               
             }
         }
 
@@ -334,18 +335,13 @@ namespace aPresentationLayer
                                                 txtIDPaciente.Text = Bl_Paciente.SearchIDPaciente().ToString();
                                                 //Si todo paso bien
 
-                                                NUEVO = false;
+                                                NUEVO = true;
 
                                                 //Deshabilito los Txt
                                                 Controles.DeshabilitarText(frm_pacientes);
 
                                                 //Deshabilito los Datagried
                                                 Controles.DeshabilitarDGV(frm_pacientes);
-
-                                                //Si se inserto el paciente bien 
-                                                seGuardoDirecciones = false;
-                                                seGuardoTelefonos = false;
-                                                seGuardoTelefonos = false;
 
                                                 MessageBox.Show("Los datos del paciente fueron insertados correctamente", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -450,12 +446,13 @@ namespace aPresentationLayer
                                                 NUEVO = true;
                                                 EDITANDO = false;
 
-                                                //si todo anduvo bien
-                                                seGuardoDirecciones = false;
-                                                seGuardoTelefonos = false;
-                                                seGuardoContactos = false;
 
                                                 MessageBox.Show("La edición se realizó correctamente", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            }
+                                            else 
+                                            {
+                                                MessageBox.Show("Hay problemas para actualizar los datos en general del paciente, comuniquese con el administrador del sistema, disculpe los inconvenientes", "Smart Clinic", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                                             }
 
                                         }
@@ -497,7 +494,7 @@ namespace aPresentationLayer
         private void btnAgregarDireccion_Click(object sender, EventArgs e)
         {
             if (txtUbicacion.Text.Length != 0 && txtUbicacion.Text != string.Empty
-               && txtUbicacion.Text != "Agregar una direccion para el paciente" && txtDireccion.Enabled == true)
+               && txtUbicacion.Text != "Agregar una dirección para el paciente" && txtUbicacion.Enabled == true)
             {
 
                 vistaDirecciones.AddNewRow();
@@ -558,7 +555,7 @@ namespace aPresentationLayer
         {
             if (txtUbicacion.Text == string.Empty)
             {
-                txtUbicacion.Text = "Agregar una direccion para el paciente";
+                txtUbicacion.Text = "Agregar una dirección para el paciente";
                 txtUbicacion.ForeColor = Color.DarkGray;
             }
         }
@@ -573,7 +570,8 @@ namespace aPresentationLayer
 
         private void btnAgregarTelefonos_Click(object sender, EventArgs e)
         {
-            if (txtTelefonos.Text.Length != 0 && txtTelefonos.Text != string.Empty)
+            if (txtTelefonos.Text.Length != 0 && txtTelefonos.Text != string.Empty
+               && txtTelefonos.Text != "Agregar Teléfono" && txtTelefonos.Enabled == true)
             {
                 vistaTelefonos.AddNewRow();
                 vistaTelefonos.SetRowCellValue(vistaTelefonos.FocusedRowHandle, "Teléfonos", txtTelefonos.Text.Trim());
@@ -619,7 +617,10 @@ namespace aPresentationLayer
 
         private void btnAgregarContacto_Click(object sender, EventArgs e)
         {
-            if (txtContacto.Text != string.Empty && txtTelefonoContacto.Text != string.Empty)
+
+            if (txtContacto.Text.Length != 0 && txtContacto.Text != string.Empty
+               && txtContacto.Text != "Agregar Nombre de Contacto " && txtContacto.Enabled == true && txtTelefonoContacto.Text.Length != 0
+               && txtTelefonoContacto.Text != string.Empty && txtTelefonoContacto.Text != "Agregar Teléfono" && txtTelefonoContacto.Enabled == true )
             {
                 VistaContactos.AddNewRow();
                 VistaContactos.SetRowCellValue(VistaContactos.FocusedRowHandle, "Nombre de Contacto", txtContacto.Text.Trim());
@@ -652,7 +653,7 @@ namespace aPresentationLayer
 
         private void txtTelefonos_Leave(object sender, EventArgs e)
         {
-            if (txtTelefonos.Text == string.Empty)
+            if (txtTelefonos.Text == string.Empty || txtTelefonos.Text.Length == 0)
             {
                 txtTelefonos.Text = "Agregar Teléfono";
                 txtTelefonos.ForeColor = Color.DarkGray;
@@ -671,7 +672,7 @@ namespace aPresentationLayer
 
         private void txtTelefonoContacto_Leave(object sender, EventArgs e)
         {
-            if (txtTelefonoContacto.Text == string.Empty)
+            if (txtTelefonoContacto.Text == string.Empty || txtTelefonoContacto.Text.Length == 0)
             {
                 txtTelefonoContacto.Text = "Agregar Teléfono";
                 txtTelefonoContacto.ForeColor = Color.DarkGray;

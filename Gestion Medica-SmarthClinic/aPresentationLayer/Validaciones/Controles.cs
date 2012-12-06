@@ -109,6 +109,7 @@ namespace aPresentationLayer.Validaciones
                 if (contHijo is TextEdit)
                 {
                     contHijo.Enabled = false;
+                    
                 }
                 else if (contHijo is ComboBoxEdit)
                 {
