@@ -83,11 +83,12 @@ namespace DataAccessLayer
                 Da_Connection.Get.Open();
 
                 //Paso los valores para la tabla Pacientes.
+                command.Parameters.Add(new SqlParameter("@IDPaciente", EntidadPaciente.IDPaciente) { SqlDbType = SqlDbType.NVarChar });
                 command.Parameters.Add(new SqlParameter("@Nombres", EntidadPaciente.Nombres) { SqlDbType = SqlDbType.NVarChar });
                 command.Parameters.Add(new SqlParameter("@Apellidos", EntidadPaciente.Apellidos) { SqlDbType = SqlDbType.NVarChar });
                 command.Parameters.Add(new SqlParameter("@IDTipoIdentifacion", EntidadPaciente.IDTipoIdentifacion) { SqlDbType = SqlDbType.Int });
                 command.Parameters.Add(new SqlParameter("@Identificacion", EntidadPaciente.Identificacion) { SqlDbType = SqlDbType.NVarChar });
-                command.Parameters.Add(new SqlParameter("@Edad", EntidadPaciente.Edad) { SqlDbType = SqlDbType.NVarChar});
+                command.Parameters.Add(new SqlParameter("@Edad", EntidadPaciente.Edad) { SqlDbType = SqlDbType.NVarChar });
                 command.Parameters.Add(new SqlParameter("@Genero", EntidadPaciente.Genero) { SqlDbType = SqlDbType.NChar });
                 command.Parameters.Add(new SqlParameter("@EstadoCivil", EntidadPaciente.EstadoCivil) { SqlDbType = SqlDbType.NChar });
                 command.Parameters.Add(new SqlParameter("@TipoSangre", EntidadPaciente.TipoSangre) { SqlDbType = SqlDbType.NChar });
