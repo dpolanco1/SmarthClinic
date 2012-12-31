@@ -183,9 +183,14 @@ namespace aPresentationLayer.Validaciones
                     DGV = (DataGridView)contHijo;
                     DGV.DataSource = null;
                     DGV.Rows.Clear();
+
+                  
                 }
+
+                
             }
 
+          
         }
 
         // Para Pasar Color a los TextBox Dentro del Control

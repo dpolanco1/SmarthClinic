@@ -66,6 +66,9 @@
             this.lblTelefono = new DevExpress.XtraEditors.LabelControl();
             this.lblDirecciones = new DevExpress.XtraEditors.LabelControl();
             this.grpDatos = new DevExpress.XtraEditors.GroupControl();
+            this.btnAgregarTipoPaciente = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAgregarEstadoCivil = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAgregarIdentificacion = new DevExpress.XtraEditors.SimpleButton();
             this.txtEdad = new DevExpress.XtraEditors.SpinEdit();
             this.txtIdentificacion = new DevExpress.XtraEditors.TextEdit();
             this.txtDireccion = new DevExpress.XtraEditors.TextEdit();
@@ -117,9 +120,6 @@
             this.vistaListaPacientes = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grpFiltroListaPacientes = new DevExpress.XtraEditors.GroupControl();
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
-            this.btnAgregarIdentificacion = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAgregarEstadoCivil = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAgregarTipoPaciente = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabPrincipalPacientes)).BeginInit();
             this.tabPrincipalPacientes.SuspendLayout();
             this.tabPacientes.SuspendLayout();
@@ -405,7 +405,7 @@
             this.vistaDirecciones.OptionsView.ShowGroupPanel = false;
             this.vistaDirecciones.OptionsView.ShowIndicator = false;
             this.vistaDirecciones.OptionsView.ShowViewCaption = true;
-            this.vistaDirecciones.ViewCaption = "Ubicaciones";
+            this.vistaDirecciones.ViewCaption = "Direcciones";
             // 
             // txtTelefonoContacto
             // 
@@ -607,6 +607,33 @@
             this.grpDatos.TabIndex = 91;
             this.grpDatos.Text = "Datos del Paciente";
             // 
+            // btnAgregarTipoPaciente
+            // 
+            this.btnAgregarTipoPaciente.Image = global::aPresentationLayer.Properties.Resources.bullet_add_icon;
+            this.btnAgregarTipoPaciente.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAgregarTipoPaciente.Location = new System.Drawing.Point(1073, 55);
+            this.btnAgregarTipoPaciente.Name = "btnAgregarTipoPaciente";
+            this.btnAgregarTipoPaciente.Size = new System.Drawing.Size(20, 21);
+            this.btnAgregarTipoPaciente.TabIndex = 66;
+            // 
+            // btnAgregarEstadoCivil
+            // 
+            this.btnAgregarEstadoCivil.Image = global::aPresentationLayer.Properties.Resources.bullet_add_icon;
+            this.btnAgregarEstadoCivil.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAgregarEstadoCivil.Location = new System.Drawing.Point(69, 100);
+            this.btnAgregarEstadoCivil.Name = "btnAgregarEstadoCivil";
+            this.btnAgregarEstadoCivil.Size = new System.Drawing.Size(20, 21);
+            this.btnAgregarEstadoCivil.TabIndex = 65;
+            // 
+            // btnAgregarIdentificacion
+            // 
+            this.btnAgregarIdentificacion.Image = global::aPresentationLayer.Properties.Resources.bullet_add_icon;
+            this.btnAgregarIdentificacion.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAgregarIdentificacion.Location = new System.Drawing.Point(622, 55);
+            this.btnAgregarIdentificacion.Name = "btnAgregarIdentificacion";
+            this.btnAgregarIdentificacion.Size = new System.Drawing.Size(20, 21);
+            this.btnAgregarIdentificacion.TabIndex = 64;
+            // 
             // txtEdad
             // 
             this.txtEdad.EditValue = new decimal(new int[] {
@@ -779,8 +806,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbEstadoCivil.Properties.Items.AddRange(new object[] {
             "",
-            "Soltero",
-            "Casado"});
+            "S",
+            "C"});
             this.cmbEstadoCivil.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbEstadoCivil.Size = new System.Drawing.Size(54, 20);
             this.cmbEstadoCivil.TabIndex = 7;
@@ -1106,7 +1133,6 @@
             // dtgListaPacientes
             // 
             this.dtgListaPacientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgListaPacientes.Enabled = false;
             this.dtgListaPacientes.Location = new System.Drawing.Point(0, 25);
             this.dtgListaPacientes.MainView = this.vistaListaPacientes;
             this.dtgListaPacientes.MenuManager = this.barManager1;
@@ -1115,6 +1141,7 @@
             this.dtgListaPacientes.TabIndex = 88;
             this.dtgListaPacientes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vistaListaPacientes});
+            this.dtgListaPacientes.Click += new System.EventHandler(this.dtgListaPacientes_Click);
             this.dtgListaPacientes.Enter += new System.EventHandler(this.dtgListaPacientes_Enter);
             // 
             // vistaListaPacientes
@@ -1141,33 +1168,6 @@
             this.toolTipController1.Appearance.Options.UseBackColor = true;
             this.toolTipController1.Rounded = true;
             this.toolTipController1.ShowBeak = true;
-            // 
-            // btnAgregarIdentificacion
-            // 
-            this.btnAgregarIdentificacion.Image = global::aPresentationLayer.Properties.Resources.bullet_add_icon;
-            this.btnAgregarIdentificacion.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAgregarIdentificacion.Location = new System.Drawing.Point(622, 55);
-            this.btnAgregarIdentificacion.Name = "btnAgregarIdentificacion";
-            this.btnAgregarIdentificacion.Size = new System.Drawing.Size(20, 21);
-            this.btnAgregarIdentificacion.TabIndex = 64;
-            // 
-            // btnAgregarEstadoCivil
-            // 
-            this.btnAgregarEstadoCivil.Image = global::aPresentationLayer.Properties.Resources.bullet_add_icon;
-            this.btnAgregarEstadoCivil.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAgregarEstadoCivil.Location = new System.Drawing.Point(69, 100);
-            this.btnAgregarEstadoCivil.Name = "btnAgregarEstadoCivil";
-            this.btnAgregarEstadoCivil.Size = new System.Drawing.Size(20, 21);
-            this.btnAgregarEstadoCivil.TabIndex = 65;
-            // 
-            // btnAgregarTipoPaciente
-            // 
-            this.btnAgregarTipoPaciente.Image = global::aPresentationLayer.Properties.Resources.bullet_add_icon;
-            this.btnAgregarTipoPaciente.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAgregarTipoPaciente.Location = new System.Drawing.Point(1073, 55);
-            this.btnAgregarTipoPaciente.Name = "btnAgregarTipoPaciente";
-            this.btnAgregarTipoPaciente.Size = new System.Drawing.Size(20, 21);
-            this.btnAgregarTipoPaciente.TabIndex = 66;
             // 
             // Frm_Pacientes
             // 

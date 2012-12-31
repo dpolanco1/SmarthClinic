@@ -47,14 +47,10 @@ namespace BussinesLogicLayer
         public static bool Update(Ent_Contacto entContacto)
         {
 
-            //instancio el metodo
-            Da_Contacto daContacto = GetDaContacto();
-
-            //Validaciones De Lugar
             bool flag = false;
-
-
-            if (entContacto.IDPaciente.Equals(String.Empty) || entContacto.IDContacto.Equals(String.Empty) || entContacto.Telefono.Equals(String.Empty))
+          
+            
+            if (entContacto.IDPaciente.Equals(string.Empty) || entContacto.IDContacto.Equals(string.Empty) || entContacto.Telefono.Equals(string.Empty))
             {
                 flag = false;
 

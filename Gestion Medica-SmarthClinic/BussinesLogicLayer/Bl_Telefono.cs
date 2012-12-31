@@ -50,7 +50,7 @@ namespace BussinesLogicLayer
             //Validaciones De Lugar
             bool flag = false;
 
-            if (entTelefono.IDPaciente.Equals(String.Empty) || entTelefono.Telefono.Equals(String.Empty))
+            if (entTelefono.IDPaciente.Equals(string.Empty) || entTelefono.Telefono.Equals(string.Empty))
             {
                 flag = false;
 
